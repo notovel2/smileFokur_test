@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:smile_fokus_test/commons/Color.dart';
 import 'package:smile_fokus_test/component/Breadcrumb.dart';
+import 'package:smile_fokus_test/component/CustomChart.dart';
 import 'package:smile_fokus_test/component/OverviewSection.dart';
+import 'package:smile_fokus_test/constant/enums.dart';
+import 'package:smile_fokus_test/model/ChartData.dart';
 import 'package:smile_fokus_test/model/SectionData.dart';
+import 'package:smile_fokus_test/model/UserProfile.dart';
+import 'package:smile_fokus_test/services/api.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -75,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              "WIPA PRAMOJ",
+                              "${UserProfile.shared.firstName} ${UserProfile.shared.lastName}",
                               style: TextStyle(
                                 color: CustomColors.orange,
                                 fontFamily: 'Myriad Pro',
@@ -83,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                             Text(
-                              "CENTRAL WORLD",
+                              UserProfile.shared.location,
                               style: TextStyle(
                                 color: CustomColors.gray,
                                 fontFamily: 'Myriad Pro',
@@ -125,69 +130,89 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: CustomColors.bgBlack,
       ),
       body: Center(
-        child: Container(
-          color: CustomColors.bgGray,
-          child: Column(
-            children: <Widget>[
-              Breadcrumb(),
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    OverviewSection(
-                      sectionData: SectionData(
-                        title: "Revenue",
-                        type: "Corporate",
-                        currency: "THB",
-                        dataOfCurrentYear: 19042621,
-                        totalData: 32872692,
-                      ),
+        child: SafeArea(
+          child: Container(
+            color: CustomColors.bgGray,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Breadcrumb(),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        OverviewSection(
+                          sectionData: SectionData(
+                            title: "Revenue",
+                            type: "Corporate",
+                            currency: "THB",
+                            dataOfCurrentYear: 19042621,
+                            totalData: 32872692,
+                          ),
+                        ),
+                        CustomChart(
+                          chartData: Api.getData(dataType.revenue),
+                          domainFn:  (ChartData data, _) => "",
+                          measureFn: (ChartData data, _) => data.mainAmount.active,
+                          id: 'Revenue',
+                        ),
+                      ],
                     ),
-                    OverviewSection(
-                      sectionData: SectionData(
-                        title: "Member",
-                        type: "Corporate",
-                        currency: "THB",
-                        dataOfCurrentYear: 12692,
-                        totalData: 26195,
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    OverviewSection(
-                      sectionData: SectionData(
-                        title: "Member",
-                        type: "Corporate",
-                        currency: "THB",
-                        dataOfCurrentYear: 12692,
-                        totalData: 26195,
-                      ),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        OverviewSection(
+                          sectionData: SectionData(
+                            title: "Member",
+                            type: "Corporate",
+                            currency: "THB",
+                            dataOfCurrentYear: 12692,
+                            totalData: 26195,
+                          ),
+                        ),
+                        CustomChart(
+                          chartData: [],
+                          domainFn:  (ChartData data, _) => "",
+                          measureFn: (ChartData data, _) => data.mainAmount.active,
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
-              ),
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    OverviewSection(
-                      sectionData: SectionData(
-                        title: "Branch",
-                        type: "Performance",
-                        currency: "THB",
-                        dataOfCurrentYear: 12692,
-                        totalData: 26195,
-                      ),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        OverviewSection(
+                          sectionData: SectionData(
+                            title: "Branch",
+                            type: "Performance",
+                            currency: "THB",
+                            dataOfCurrentYear: null,
+                            totalData: null,
+                          ),
+                        ),
+                        CustomChart(
+                          chartData: [],
+                          domainFn:  (ChartData data, _) => "",
+                          measureFn: (ChartData data, _) => data.mainAmount.active,
+                          isVertical: false,
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

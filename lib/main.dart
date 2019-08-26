@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smile_fokus_test/model/UserProfile.dart';
 import 'package:smile_fokus_test/view/mainView.dart';
 
 void main() => runApp(MyApp());
@@ -7,6 +8,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    UserProfile.shared.firstName = "WIPA";
+    UserProfile.shared.lastName = "PRAMOJ";
+    UserProfile.shared.location = "CENTRAL WORLD";
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(

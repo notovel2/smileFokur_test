@@ -1,0 +1,4 @@
+enum dataType {
+  revenue,
+  member,
+}

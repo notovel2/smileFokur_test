@@ -22,139 +22,96 @@ class OverviewSection extends StatelessWidget {
               flex: 1,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(
-                    sectionData.title.toUpperCase(), 
-                    style: TextStyle(
-                      fontFamily: 'Myriad Pro',
-                      color: CustomColors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
+                  Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          sectionData.title.toUpperCase(), 
+                          style: TextStyle(
+                            fontFamily: 'Myriad Pro',
+                            color: CustomColors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30,
+                          ),
+                        ),
+                        Text(
+                          sectionData.type,
+                          style: TextStyle(
+                            fontFamily: 'Myriad Pro',
+                            color: CustomColors.black,
+                            fontWeight: FontWeight.normal,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  Text(
-                    sectionData.type,
-                    style: TextStyle(
-                      fontFamily: 'Myriad Pro',
-                      color: CustomColors.black,
-                      fontWeight: FontWeight.normal,
-                      fontSize: 20,
+                  Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: _getFooter(sectionData, currentYear),
                     ),
                   ),
-                  Text(
-                    formatter.format(sectionData.dataOfCurrentYear),
-                    style: TextStyle(
-                      fontFamily: 'Myriad Pro',
-                      color: CustomColors.orange,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
-                    ),
-                  ),
-                  Text(
-                    "$currentYear ${sectionData.title} (${sectionData.currency})",
-                    style: TextStyle(
-                      fontFamily: 'Myriad Pro',
-                      color: CustomColors.black,
-                      fontWeight: FontWeight.normal,
-                      fontSize: 15,
-                    ),
-                  ),
-                  Text(
-                    formatter.format(sectionData.totalData),
-                    style: TextStyle(
-                      fontFamily: 'Myriad Pro',
-                      color: CustomColors.orange,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
-                    ),
-                  ),
-                  Text(
-                    "Total ${sectionData.title} ${sectionData.currency}",
-                    style: TextStyle(
-                      fontFamily: 'Myriad Pro',
-                      color: CustomColors.black,
-                      fontWeight: FontWeight.normal,
-                      fontSize: 15,
-                    ),
-                  ),
+                  
                 ],
               ),
             ),
           ],
         ),
       ),
-      // child: Container(
-      //   color: Colors.yellow,
-      //   child: Column(
-      //     children: <Widget>[
-      //       FlexCard(
-      //         flex: 1,
-      //         child: Container(
-      //           child: Column(
-      //             crossAxisAlignment: CrossAxisAlignment.start,
-      //             children: <Widget>[
-      //               Text(
-      //                 sectionData.title.toUpperCase(), 
-      //                 style: TextStyle(
-      //                   fontFamily: 'Myriad Pro',
-      //                   color: CustomColors.black,
-      //                   fontWeight: FontWeight.bold,
-      //                   fontSize: 30,
-      //                 ),
-      //               ),
-      //               Text(
-      //                 sectionData.type,
-      //                 style: TextStyle(
-      //                   fontFamily: 'Myriad Pro',
-      //                   color: CustomColors.black,
-      //                   fontWeight: FontWeight.normal,
-      //                   fontSize: 20,
-      //                 ),
-      //               ),
-      //               Text(
-      //                 formatter.format(sectionData.dataOfCurrentYear),
-      //                 style: TextStyle(
-      //                   fontFamily: 'Myriad Pro',
-      //                   color: CustomColors.orange,
-      //                   fontWeight: FontWeight.bold,
-      //                   fontSize: 30,
-      //                 ),
-      //               ),
-      //               Text(
-      //                 "$currentYear ${sectionData.title} (${sectionData.currency})",
-      //                 style: TextStyle(
-      //                   fontFamily: 'Myriad Pro',
-      //                   color: CustomColors.black,
-      //                   fontWeight: FontWeight.normal,
-      //                   fontSize: 15,
-      //                 ),
-      //               ),
-      //               Text(
-      //                 sectionData.totalData.toString(),
-      //                 style: TextStyle(
-      //                   fontFamily: 'Myriad Pro',
-      //                   color: CustomColors.orange,
-      //                   fontWeight: FontWeight.bold,
-      //                   fontSize: 30,
-      //                 ),
-      //               ),
-      //               Text(
-      //                 "Total ${sectionData.title} ${sectionData.currency}",
-      //                 style: TextStyle(
-      //                   fontFamily: 'Myriad Pro',
-      //                   color: CustomColors.black,
-      //                   fontWeight: FontWeight.normal,
-      //                   fontSize: 15,
-      //                 ),
-      //               ),
-      //             ],
-      //           ),
-      //           padding: EdgeInsets.all(20),
-      //         ),
-      //       ),
-      //     ],
-      //   ),
-      // ),
     );
+  }
+
+  List<Widget> _getFooter(SectionData data, int currentYear) {
+    var widgets = List<Widget>();
+    if(data.dataOfCurrentYear != null) {
+      widgets.addAll([
+          Text(
+            formatter.format(data.dataOfCurrentYear),
+            style: TextStyle(
+              fontFamily: 'Myriad Pro',
+              color: CustomColors.orange,
+              fontWeight: FontWeight.bold,
+              fontSize: 30,
+            ),
+          ),
+          Text(
+            "$currentYear ${data.title} (${data.currency})",
+            style: TextStyle(
+              fontFamily: 'Myriad Pro',
+              color: CustomColors.black,
+              fontWeight: FontWeight.normal,
+              fontSize: 15,
+            ),
+          ),
+        ]
+      );
+    }
+    if(data.totalData != null) {
+      widgets.addAll([
+        Text(
+          formatter.format(sectionData.totalData),
+          style: TextStyle(
+            fontFamily: 'Myriad Pro',
+            color: CustomColors.orange,
+            fontWeight: FontWeight.bold,
+            fontSize: 30,
+          ),
+        ),
+        Text(
+          "Total ${sectionData.title} (${sectionData.currency})",
+          style: TextStyle(
+            fontFamily: 'Myriad Pro',
+            color: CustomColors.black,
+            fontWeight: FontWeight.normal,
+            fontSize: 15,
+          ),
+        ),
+      ]);
+    }
+    return widgets;
   }
 }

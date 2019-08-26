@@ -8,7 +8,7 @@ class FlexCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      flex: 1,
+      flex: flex,
       child: Container(
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
