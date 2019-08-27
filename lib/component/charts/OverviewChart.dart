@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:smile_fokus_test/component/charts/CustomChart.dart';
 import 'package:smile_fokus_test/constant/Color.dart';
-import 'package:smile_fokus_test/model/ChartData.dart';
+import 'package:smile_fokus_test/model/chart/ChartData.dart';
 
-class OverviewChart extends StatefulWidget implements CustomChart {
+class OverviewChart extends CustomChart<ChartData> {
   OverviewChart({Key key, 
                 this.chartDatalist, 
                 this.domainFn, 
@@ -13,14 +13,15 @@ class OverviewChart extends StatefulWidget implements CustomChart {
                 this.isVertical = true, 
                 this.id, 
                 this.title}) : super(key: key);
-  List<ChartData> chartDatalist;
   final dynamic Function(ChartData, int) domainFn;
   final num Function(ChartData, int) measureFn;
   final String id;
   final bool isVertical;
   final String title;
   @override
-  _ChartState createState() => _ChartState();
+  List<ChartData> chartDatalist;
+  @override
+  State<StatefulWidget> createState() => _ChartState();
 }
 
 class _ChartState extends State<OverviewChart> {

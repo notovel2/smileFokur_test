@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:smile_fokus_test/commons/ChartSection.dart';
+import 'package:smile_fokus_test/component/charts/OverviewChart.dart';
+import 'package:smile_fokus_test/component/charts/PerformanceChart.dart';
 import 'package:smile_fokus_test/constant/Color.dart';
 import 'package:smile_fokus_test/component/Breadcrumb.dart';
 import 'package:smile_fokus_test/component/OverviewSection.dart';
 import 'package:smile_fokus_test/constant/enums.dart';
-import 'package:smile_fokus_test/model/ChartData.dart';
-import 'package:smile_fokus_test/model/ChartModel.dart';
+import 'package:smile_fokus_test/model/MainModel.dart';
 import 'package:smile_fokus_test/model/SectionData.dart';
 import 'package:smile_fokus_test/model/UserProfile.dart';
+import 'package:smile_fokus_test/model/chart/BranchSummaryChartModel.dart';
+import 'package:smile_fokus_test/model/chart/ChartData.dart';
 import 'package:smile_fokus_test/presenter/mainPresenter.dart';
-import 'package:smile_fokus_test/services/api.dart';
 
 class MainView extends StatefulWidget {
   MainView({Key key, this.title}) : super(key: key);
@@ -21,10 +23,8 @@ class MainView extends StatefulWidget {
 }
 
 class _MainViewState extends State<MainView> {
-  ChartModel revenueData;
-  ChartModel memberData;
-  ChartModel performanceRevenue;
-  ChartModel performanceMember;
+  MainChartResponse revenueData;
+  MainChartResponse memberData;
   @override
   void initState() {
     super.initState();
@@ -146,12 +146,14 @@ class _MainViewState extends State<MainView> {
                             totalData: revenueData.total,
                           ),
                         ),
-                        ChartSection(
-                          chartDatalist: revenueData.datalist,
-                          domainFn:  (ChartData data, _) => data.period.toString(),
-                          measureFn: (ChartData data, _) => data.mainAmount.active,
-                          id: 'Revenue',
-                          title: 'Revenue(THB)',
+                        ChartSection<ChartData>(
+                          customChart: OverviewChart(
+                            chartDatalist: revenueData.datalist,
+                            domainFn:  (ChartData data, _) => data.period.toString(),
+                            measureFn: (ChartData data, _) => data.mainAmount.active,
+                            id: 'Revenue',
+                            title: 'Revenue(THB)',
+                          ),
                         ),
                       ],
                     ),
@@ -172,12 +174,14 @@ class _MainViewState extends State<MainView> {
                             totalData: memberData.total,
                           ),
                         ),
-                        ChartSection(
-                          chartDatalist: memberData.datalist,
-                          domainFn:  (ChartData data, _) => data.period.toString(),
-                          measureFn: (ChartData data, _) => data.mainAmount.active,
-                          id: 'Member',
-                          title: 'Member',
+                        ChartSection<ChartData>(
+                          customChart: OverviewChart(
+                            chartDatalist: memberData.datalist,
+                            domainFn:  (ChartData data, _) => data.period.toString(),
+                            measureFn: (ChartData data, _) => data.mainAmount.active,
+                            id: 'Member',
+                            title: 'Member',
+                          ),
                         ),
                       ],
                     ),
@@ -198,19 +202,23 @@ class _MainViewState extends State<MainView> {
                             totalData: null,
                           ),
                         ),
-                        ChartSection(
+                        ChartSection<BranchSummary>(
+                          customChart: PerformanceChart(
+                            chartDatalist: revenueData.branchSummaryList,
+                            domainFn:  (BranchSummary data, _) => data.place,
+                            measureFn: (BranchSummary data, _) => data.value,
+                            isVertical: false,
+                          ),
                           flex: 2,
-                          chartDatalist: [],
-                          domainFn:  (ChartData data, _) => data.period.toString(),
-                          measureFn: (ChartData data, _) => data.mainAmount.active,
-                          isVertical: false,
                         ),
-                        ChartSection(
+                        ChartSection<BranchSummary>(
+                          customChart: PerformanceChart(
+                            chartDatalist: memberData.branchSummaryList,
+                            domainFn:  (BranchSummary data, _) => data.place,
+                            measureFn: (BranchSummary data, _) => data.value,
+                            isVertical: false,
+                          ),
                           flex: 2,
-                          chartDatalist: [],
-                          domainFn:  (ChartData data, _) => data.period.toString(),
-                          measureFn: (ChartData data, _) => data.mainAmount.active,
-                          isVertical: false,
                         ),
                       ],
                     ),

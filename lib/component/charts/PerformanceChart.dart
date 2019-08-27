@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:smile_fokus_test/component/charts/CustomChart.dart';
 import 'package:smile_fokus_test/constant/Color.dart';
-import 'package:smile_fokus_test/model/ChartData.dart';
-import 'package:smile_fokus_test/model/ChartModel.dart';
+import 'package:smile_fokus_test/model/chart/BranchSummaryChartModel.dart';
 
 
-class PerformanceChart extends StatefulWidget implements CustomChart {
+class PerformanceChart extends CustomChart<BranchSummary> {
   PerformanceChart({Key key, 
                       this.chartDatalist, 
                       this.domainFn, 
@@ -19,10 +18,10 @@ class PerformanceChart extends StatefulWidget implements CustomChart {
   _PerformanceChartState createState() => _PerformanceChartState();
 
   @override
-  List<ChartData> chartDatalist;
+  List<BranchSummary> chartDatalist;
 
   @override
-  dynamic Function(ChartData, int) domainFn;
+  dynamic Function(BranchSummary, int) domainFn;
 
   @override
   String id;
@@ -31,7 +30,7 @@ class PerformanceChart extends StatefulWidget implements CustomChart {
   bool isVertical;
 
   @override
-  num Function(ChartData, int) measureFn;
+  num Function(BranchSummary, int) measureFn;
 
   @override
   String title;
@@ -41,10 +40,10 @@ class _PerformanceChartState extends State<PerformanceChart> {
   
   charts.Color _getColor(BranchSummary chartData, bool isLast) {
     DateTime now = DateTime.now();
-    // if(chartData.period.year == now.year) {
-    //   return (isLast) ? charts.Color.fromHex(code: CustomColors.orange.hex) : charts.Color.fromHex(code: CustomColors.orangeOpacity.hex);
-    // }
-    return charts.Color.fromHex(code: CustomColors.gray.hex);
+    
+    return (chartData.color != null) ? 
+                    charts.Color.fromHex(code: chartData.color)
+                  : charts.Color.fromHex(code: CustomColors.gray.hex);
   }
 
   @override
@@ -70,14 +69,6 @@ class _PerformanceChartState extends State<PerformanceChart> {
         showAxisLine: false,
         renderSpec: charts.NoneRenderSpec(),
       ),
-      behaviors: [
-        charts.ChartTitle(
-          widget.title,
-          behaviorPosition: charts.BehaviorPosition.top,
-          titleOutsideJustification: charts.OutsideJustification.startDrawArea,
-          innerPadding: 10
-        ),
-      ],
     );
   }
 }

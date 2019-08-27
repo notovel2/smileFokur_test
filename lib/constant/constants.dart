@@ -11,32 +11,32 @@ class Constants {
     "branch_summary": [
       {
         "place": "Central Ladprao",
-        "value": 577148,
+        "value": 577148
       },
       {
         "place": "Central Embassy",
-        "value": 635241,
+        "value": 635241
       },
       {
         "place": "Mega Bangna",
-        "value": 459604,
+        "value": 459604
       },
       {
         "place": "Icon Siam",
-        "value": 424724,
+        "value": 424724
       },
       {
         "place": "Emporium",
-        "value": 780791,
+        "value": 780791
       },
       {
         "place": "Central World",
-        "value": 554224,
+        "value": 554224
       },
       {
         "place": "Central EastVille",
-        "value": 460062,
-      },
+        "value": 460062
+      }
     ],
     "data": [
       {  
@@ -2074,32 +2074,32 @@ class Constants {
       "branch_summary": [
         {
           "place": "Central Ladprao",
-          "value": 883,
+          "value": 883
         },
         {
           "place": "Central Embassy",
-          "value": 930,
+          "value": 930
         },
         {
           "place": "Mega Bangna",
-          "value": 688,
+          "value": 688
         },
         {
           "place": "Icon Siam",
-          "value": 640,
+          "value": 640
         },
         {
           "place": "Emporium",
-          "value": 1165,
+          "value": 1165
         },
         {
           "place": "Central World",
-          "value": 809,
+          "value": 809
         },
         {
           "place": "Central EastVille",
-          "value": 690,
-        },
+          "value": 690
+        }
       ],
       "data":[  
         {  

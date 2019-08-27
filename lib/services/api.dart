@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:smile_fokus_test/constant/constants.dart';
 import 'package:smile_fokus_test/constant/enums.dart';
-import 'package:smile_fokus_test/model/ChartData.dart';
 
 class Api {
   static Map<String, dynamic> getData(DataType type) {

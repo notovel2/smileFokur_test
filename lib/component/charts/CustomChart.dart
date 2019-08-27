@@ -2,9 +2,8 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:smile_fokus_test/constant/Color.dart';
-import 'package:smile_fokus_test/model/ChartData.dart';
 
-class CustomChart<T> {
+class CustomChart<T> extends StatefulWidget{
   CustomChart({Key key, 
                 this.chartDatalist, 
                 this.domainFn, 
@@ -18,4 +17,7 @@ class CustomChart<T> {
   String id;
   bool isVertical;
   String title;
+
+  @override
+  State<StatefulWidget> createState() => null;
 }
