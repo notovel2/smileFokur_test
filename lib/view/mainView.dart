@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:smile_fokus_test/commons/Color.dart';
+import 'package:smile_fokus_test/commons/ChartSection.dart';
+import 'package:smile_fokus_test/constant/Color.dart';
 import 'package:smile_fokus_test/component/Breadcrumb.dart';
-import 'package:smile_fokus_test/component/CustomChart.dart';
 import 'package:smile_fokus_test/component/OverviewSection.dart';
 import 'package:smile_fokus_test/constant/enums.dart';
 import 'package:smile_fokus_test/model/ChartData.dart';
+import 'package:smile_fokus_test/model/ChartModel.dart';
 import 'package:smile_fokus_test/model/SectionData.dart';
 import 'package:smile_fokus_test/model/UserProfile.dart';
+import 'package:smile_fokus_test/presenter/mainPresenter.dart';
 import 'package:smile_fokus_test/services/api.dart';
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
+class MainView extends StatefulWidget {
+  MainView({Key key, this.title}) : super(key: key);
+  final MainPresenter presenter = MainPresenter();
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
   // how it looks.
@@ -24,31 +26,32 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MainViewState createState() => _MainViewState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _MainViewState extends State<MainView> {
+  ChartModel revenueData;
+  ChartModel memberData;
+  ChartModel performanceRevenue;
+  ChartModel performanceMember;
+  @override
+  void initState() {
+    super.initState();
+    setup();
+    setupChart();
+  }
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  setup() {
+    widget.presenter.view = widget;
+  }
+
+  setupChart() {
+    revenueData = widget.presenter.getChartData(DataType.revenue);
+    memberData = widget.presenter.getChartData(DataType.member);
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
         bottom: PreferredSize(
@@ -82,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             Text(
                               "${UserProfile.shared.firstName} ${UserProfile.shared.lastName}",
                               style: TextStyle(
-                                color: CustomColors.orange,
+                                color: CustomColors.orange.color,
                                 fontFamily: 'Myriad Pro',
                                 fontSize: 20,
                               ),
@@ -90,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             Text(
                               UserProfile.shared.location,
                               style: TextStyle(
-                                color: CustomColors.gray,
+                                color: CustomColors.gray.color,
                                 fontFamily: 'Myriad Pro',
                                 fontSize: 12,
                               ),
@@ -104,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Expanded(
                   flex: 1,
                   child: Container(
-                    color: CustomColors.orange,
+                    color: CustomColors.orange.color,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
@@ -127,12 +130,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
         ),
-        backgroundColor: CustomColors.bgBlack,
+        backgroundColor: CustomColors.bgBlack.color,
       ),
       body: Center(
         child: SafeArea(
           child: Container(
-            color: CustomColors.bgGray,
+            color: CustomColors.bgGray.color,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -148,15 +151,16 @@ class _MyHomePageState extends State<MyHomePage> {
                             title: "Revenue",
                             type: "Corporate",
                             currency: "THB",
-                            dataOfCurrentYear: 19042621,
-                            totalData: 32872692,
+                            dataOfCurrentYear: revenueData.totalCurrentYear,
+                            totalData: revenueData.total,
                           ),
                         ),
-                        CustomChart(
-                          chartData: Api.getData(dataType.revenue),
-                          domainFn:  (ChartData data, _) => "",
+                        ChartSection(
+                          chartDatalist: revenueData.datalist,
+                          domainFn:  (ChartData data, _) => data.period.toString(),
                           measureFn: (ChartData data, _) => data.mainAmount.active,
                           id: 'Revenue',
+                          title: 'Revenue(THB)',
                         ),
                       ],
                     ),
@@ -173,14 +177,16 @@ class _MyHomePageState extends State<MyHomePage> {
                             title: "Member",
                             type: "Corporate",
                             currency: "THB",
-                            dataOfCurrentYear: 12692,
-                            totalData: 26195,
+                            dataOfCurrentYear: memberData.totalCurrentYear,
+                            totalData: memberData.total,
                           ),
                         ),
-                        CustomChart(
-                          chartData: [],
-                          domainFn:  (ChartData data, _) => "",
+                        ChartSection(
+                          chartDatalist: memberData.datalist,
+                          domainFn:  (ChartData data, _) => data.period.toString(),
                           measureFn: (ChartData data, _) => data.mainAmount.active,
+                          id: 'Member',
+                          title: 'Member(THB)',
                         ),
                       ],
                     ),
@@ -201,9 +207,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             totalData: null,
                           ),
                         ),
-                        CustomChart(
-                          chartData: [],
-                          domainFn:  (ChartData data, _) => "",
+                        ChartSection(
+                          chartDatalist: [],
+                          domainFn:  (ChartData data, _) => data.period.toString(),
                           measureFn: (ChartData data, _) => data.mainAmount.active,
                           isVertical: false,
                         ),

@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:smile_fokus_test/commons/Color.dart';
+import 'package:smile_fokus_test/constant/Color.dart';
 
 class Breadcrumb extends StatelessWidget {
   static final pathStack = new List();
@@ -11,7 +11,7 @@ class Breadcrumb extends StatelessWidget {
         fontFamily: 'Myriad Pro',
         fontWeight: isLast ? FontWeight.bold : FontWeight.normal,
         fontSize: isLast ? 30 : 20,
-        color: isLast ? CustomColors.orange : CustomColors.black,
+        color: isLast ? CustomColors.orange.color : CustomColors.black.color,
       ),
     );
   }

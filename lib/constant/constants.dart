@@ -4,8 +4,10 @@ class Constants {
   static final Map<String, dynamic> revenue = jsonDecode(_revenue);
   static final Map<String, dynamic> member = jsonDecode(_member);
 
-  static final String _member = """
+  static final String _revenue = """
   {
+    "total": 259637713,
+    "total_current_year": 3891794,
     "data": [
       {  
         "period":"01-Aug-2019",
@@ -2035,2055 +2037,2035 @@ class Constants {
     ]
   }
   """;
-  static final String _revenue = """
+  static final String _member = """
     {  
+      "total": 30194,
+      "total_current_year": 5805,
       "data":[  
         {  
-            "period":"01-Aug-2019",
-            "mainAmount":{  
-              "active":255,
-              "total":24603
-            },
-            "gender":{  
-              "gentleman":121,
-              "lady":108,
-              "other":26
-            },
-            "age":[  
+          "period":"01-Aug-2019",
+          "mainAmount":{  
+              "active":224548,
+              "total":255970467
+          },
+          "gender":{  
+              "gentleman":95363,
+              "lady":105020,
+              "other":24165
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":13
+                "range":"12-17",
+                "value":10564
               },
               {  
-                  "range":"18-24",
-                  "value":50
+                "range":"18-24",
+                "value":40904
               },
               {  
-                  "range":"25-34",
-                  "value":46
+                "range":"25-34",
+                "value":45769
               },
               {  
-                  "range":"35-44",
-                  "value":55
+                "range":"35-44",
+                "value":43681
               },
               {  
-                  "range":"45-54",
-                  "value":39
+                "range":"45-54",
+                "value":29428
               },
               {  
-                  "range":"55-64",
-                  "value":25
+                "range":"55-64",
+                "value":21643
               },
               {  
-                  "range":"65+",
-                  "value":27
+                "range":"65+",
+                "value":32559
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":41
+                "place":"Central Ladprao",
+                "value":31073
               },
               {  
-                  "place":"Central Embassy",
-                  "value":45
+                "place":"Central Embassy",
+                "value":38598
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":29
+                "place":"Mega Bangna",
+                "value":27206
               },
               {  
-                  "place":"Icon Siam",
-                  "value":29
+                "place":"Icon Siam",
+                "value":23730
               },
               {  
-                  "place":"Emporium",
-                  "value":49
+                "place":"Emporium",
+                "value":45513
               },
               {  
-                  "place":"Central World",
-                  "value":39
+                "place":"Central World",
+                "value":33806
               },
               {  
-                  "place":"Central EastVille",
-                  "value":23
+                "place":"Central EastVille",
+                "value":24622
               }
-            ],
-            "tier":{  
-              "starter":111,
-              "silver":82,
-              "gold":51,
-              "platinum":11
-            },
-            "class":{  
-              "handshake":100,
-              "experience":68,
-              "belonging":42,
-              "viral":26,
-              "never_leave":19
-            }
-        },
-        {  
-            "period":"02-Aug-2019",
-            "mainAmount":{  
-              "active":302,
-              "total":24837
-            },
-            "gender":{  
-              "gentleman":140,
-              "lady":135,
-              "other":27
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":59641,
+              "silver":62136,
+              "gold":48808,
+              "platinum":53963
+          },
+          "class":{  
+              "handshake":50335,
+              "experience":55654,
+              "belonging":46958,
+              "viral":33321,
+              "never_leave":38280
+          }
+        },{  
+          "period":"02-Aug-2019",
+          "mainAmount":{  
+              "active":196980,
+              "total":256167447
+          },
+          "gender":{  
+              "gentleman":94596,
+              "lady":81730,
+              "other":20654
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":16
+                "range":"12-17",
+                "value":10184
               },
               {  
-                  "range":"18-24",
-                  "value":60
+                "range":"18-24",
+                "value":34206
               },
               {  
-                  "range":"25-34",
-                  "value":61
+                "range":"25-34",
+                "value":38285
               },
               {  
-                  "range":"35-44",
-                  "value":58
+                "range":"35-44",
+                "value":42997
               },
               {  
-                  "range":"45-54",
-                  "value":40
+                "range":"45-54",
+                "value":27640
               },
               {  
-                  "range":"55-64",
-                  "value":32
+                "range":"55-64",
+                "value":20944
               },
               {  
-                  "range":"65+",
-                  "value":35
+                "range":"65+",
+                "value":22724
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":48
+                "place":"Central Ladprao",
+                "value":26703
               },
               {  
-                  "place":"Central Embassy",
-                  "value":47
+                "place":"Central Embassy",
+                "value":33481
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":34
+                "place":"Mega Bangna",
+                "value":21541
               },
               {  
-                  "place":"Icon Siam",
-                  "value":33
+                "place":"Icon Siam",
+                "value":20108
               },
               {  
-                  "place":"Emporium",
-                  "value":57
+                "place":"Emporium",
+                "value":42564
               },
               {  
-                  "place":"Central World",
-                  "value":43
+                "place":"Central World",
+                "value":27669
               },
               {  
-                  "place":"Central EastVille",
-                  "value":40
+                "place":"Central EastVille",
+                "value":24914
               }
-            ],
-            "tier":{  
-              "starter":123,
-              "silver":96,
-              "gold":55,
-              "platinum":28
-            },
-            "class":{  
-              "handshake":118,
-              "experience":87,
-              "belonging":44,
-              "viral":34,
-              "never_leave":19
-            }
-        },
-        {  
-            "period":"03-Aug-2019",
-            "mainAmount":{  
-              "active":292,
-              "total":25195
-            },
-            "gender":{  
-              "gentleman":120,
-              "lady":144,
-              "other":28
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":60576,
+              "silver":62929,
+              "gold":39086,
+              "platinum":34389
+          },
+          "class":{  
+              "handshake":41392,
+              "experience":50746,
+              "belonging":40447,
+              "viral":33941,
+              "never_leave":30454
+          }
+        },{  
+          "period":"03-Aug-2019",
+          "mainAmount":{  
+              "active":187072,
+              "total":256354519
+          },
+          "gender":{  
+              "gentleman":92588,
+              "lady":74841,
+              "other":19643
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":15
+                "range":"12-17",
+                "value":9570
               },
               {  
-                  "range":"18-24",
-                  "value":57
+                "range":"18-24",
+                "value":33463
               },
               {  
-                  "range":"25-34",
-                  "value":63
+                "range":"25-34",
+                "value":34760
               },
               {  
-                  "range":"35-44",
-                  "value":63
+                "range":"35-44",
+                "value":39997
               },
               {  
-                  "range":"45-54",
-                  "value":37
+                "range":"45-54",
+                "value":28239
               },
               {  
-                  "range":"55-64",
-                  "value":27
+                "range":"55-64",
+                "value":20274
               },
               {  
-                  "range":"65+",
-                  "value":30
+                "range":"65+",
+                "value":20769
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":42
+                "place":"Central Ladprao",
+                "value":27094
               },
               {  
-                  "place":"Central Embassy",
-                  "value":47
+                "place":"Central Embassy",
+                "value":27591
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":37
+                "place":"Mega Bangna",
+                "value":22931
               },
               {  
-                  "place":"Icon Siam",
-                  "value":31
+                "place":"Icon Siam",
+                "value":18535
               },
               {  
-                  "place":"Emporium",
-                  "value":64
+                "place":"Emporium",
+                "value":37721
               },
               {  
-                  "place":"Central World",
-                  "value":39
+                "place":"Central World",
+                "value":24119
               },
               {  
-                  "place":"Central EastVille",
-                  "value":32
+                "place":"Central EastVille",
+                "value":29081
               }
-            ],
-            "tier":{  
-              "starter":106,
-              "silver":91,
-              "gold":57,
-              "platinum":38
-            },
-            "class":{  
-              "handshake":113,
-              "experience":84,
-              "belonging":42,
-              "viral":30,
-              "never_leave":23
-            }
-        },
-        {  
-            "period":"04-Aug-2019",
-            "mainAmount":{  
-              "active":256,
-              "total":25277
-            },
-            "gender":{  
-              "gentleman":115,
-              "lady":113,
-              "other":28
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":51934,
+              "silver":58094,
+              "gold":39937,
+              "platinum":37107
+          },
+          "class":{  
+              "handshake":40314,
+              "experience":44047,
+              "belonging":34511,
+              "viral":29958,
+              "never_leave":38242
+          }
+        },{  
+          "period":"04-Aug-2019",
+          "mainAmount":{  
+              "active":141062,
+              "total":256495581
+          },
+          "gender":{  
+              "gentleman":58388,
+              "lady":69200,
+              "other":13474
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":13
+                "range":"12-17",
+                "value":6813
               },
               {  
-                  "range":"18-24",
-                  "value":47
+                "range":"18-24",
+                "value":27166
               },
               {  
-                  "range":"25-34",
-                  "value":48
+                "range":"25-34",
+                "value":26551
               },
               {  
-                  "range":"35-44",
-                  "value":50
+                "range":"35-44",
+                "value":26475
               },
               {  
-                  "range":"45-54",
-                  "value":34
+                "range":"45-54",
+                "value":21257
               },
               {  
-                  "range":"55-64",
-                  "value":28
+                "range":"55-64",
+                "value":12836
               },
               {  
-                  "range":"65+",
-                  "value":36
+                "range":"65+",
+                "value":19964
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":39
+                "place":"Central Ladprao",
+                "value":20038
               },
               {  
-                  "place":"Central Embassy",
-                  "value":43
+                "place":"Central Embassy",
+                "value":23264
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":33
+                "place":"Mega Bangna",
+                "value":15313
               },
               {  
-                  "place":"Icon Siam",
-                  "value":30
+                "place":"Icon Siam",
+                "value":15799
               },
               {  
-                  "place":"Emporium",
-                  "value":52
+                "place":"Emporium",
+                "value":26687
               },
               {  
-                  "place":"Central World",
-                  "value":33
+                "place":"Central World",
+                "value":19423
               },
               {  
-                  "place":"Central EastVille",
-                  "value":26
+                "place":"Central EastVille",
+                "value":20538
               }
-            ],
-            "tier":{  
-              "starter":102,
-              "silver":70,
-              "gold":48,
-              "platinum":36
-            },
-            "class":{  
-              "handshake":98,
-              "experience":77,
-              "belonging":39,
-              "viral":25,
-              "never_leave":17
-            }
-        },
-        {  
-            "period":"05-Aug-2019",
-            "mainAmount":{  
-              "active":301,
-              "total":25642
-            },
-            "gender":{  
-              "gentleman":148,
-              "lady":120,
-              "other":33
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":36498,
+              "silver":45961,
+              "gold":32481,
+              "platinum":26122
+          },
+          "class":{  
+              "handshake":27305,
+              "experience":32119,
+              "belonging":26370,
+              "viral":20909,
+              "never_leave":34359
+          }
+        },{  
+          "period":"05-Aug-2019",
+          "mainAmount":{  
+              "active":221616,
+              "total":256717197
+          },
+          "gender":{  
+              "gentleman":103590,
+              "lady":94645,
+              "other":23381
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":16
+                "range":"12-17",
+                "value":10062
               },
               {  
-                  "range":"18-24",
-                  "value":52
+                "range":"18-24",
+                "value":38016
               },
               {  
-                  "range":"25-34",
-                  "value":60
+                "range":"25-34",
+                "value":48004
               },
               {  
-                  "range":"35-44",
-                  "value":59
+                "range":"35-44",
+                "value":46963
               },
               {  
-                  "range":"45-54",
-                  "value":45
+                "range":"45-54",
+                "value":33001
               },
               {  
-                  "range":"55-64",
-                  "value":28
+                "range":"55-64",
+                "value":23626
               },
               {  
-                  "range":"65+",
-                  "value":41
+                "range":"65+",
+                "value":21944
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":48
+                "place":"Central Ladprao",
+                "value":30004
               },
               {  
-                  "place":"Central Embassy",
-                  "value":48
+                "place":"Central Embassy",
+                "value":37595
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":35
+                "place":"Mega Bangna",
+                "value":28847
               },
               {  
-                  "place":"Icon Siam",
-                  "value":34
+                "place":"Icon Siam",
+                "value":22203
               },
               {  
-                  "place":"Emporium",
-                  "value":59
+                "place":"Emporium",
+                "value":45236
               },
               {  
-                  "place":"Central World",
-                  "value":43
+                "place":"Central World",
+                "value":28098
               },
               {  
-                  "place":"Central EastVille",
-                  "value":34
+                "place":"Central EastVille",
+                "value":29633
               }
-            ],
-            "tier":{  
-              "starter":117,
-              "silver":96,
-              "gold":61,
-              "platinum":27
-            },
-            "class":{  
-              "handshake":128,
-              "experience":91,
-              "belonging":48,
-              "viral":35,
-              "never_leave":-1
-            }
-        },
-        {  
-            "period":"06-Aug-2019",
-            "mainAmount":{  
-              "active":292,
-              "total":25893
-            },
-            "gender":{  
-              "gentleman":140,
-              "lady":120,
-              "other":32
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":61372,
+              "silver":63329,
+              "gold":45553,
+              "platinum":51362
+          },
+          "class":{  
+              "handshake":48169,
+              "experience":56527,
+              "belonging":40154,
+              "viral":32900,
+              "never_leave":43866
+          }
+        },{  
+          "period":"06-Aug-2019",
+          "mainAmount":{  
+              "active":192920,
+              "total":256910117
+          },
+          "gender":{  
+              "gentleman":85067,
+              "lady":88991,
+              "other":18862
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":13
+                "range":"12-17",
+                "value":9251
               },
               {  
-                  "range":"18-24",
-                  "value":48
+                "range":"18-24",
+                "value":35156
               },
               {  
-                  "range":"25-34",
-                  "value":54
+                "range":"25-34",
+                "value":40360
               },
               {  
-                  "range":"35-44",
-                  "value":53
+                "range":"35-44",
+                "value":36478
               },
               {  
-                  "range":"45-54",
-                  "value":43
+                "range":"45-54",
+                "value":26924
               },
               {  
-                  "range":"55-64",
-                  "value":32
+                "range":"55-64",
+                "value":19625
               },
               {  
-                  "range":"65+",
-                  "value":49
+                "range":"65+",
+                "value":25126
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":44
+                "place":"Central Ladprao",
+                "value":27025
               },
               {  
-                  "place":"Central Embassy",
-                  "value":46
+                "place":"Central Embassy",
+                "value":29809
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":36
+                "place":"Mega Bangna",
+                "value":23921
               },
               {  
-                  "place":"Icon Siam",
-                  "value":34
+                "place":"Icon Siam",
+                "value":19443
               },
               {  
-                  "place":"Emporium",
-                  "value":61
+                "place":"Emporium",
+                "value":36654
               },
               {  
-                  "place":"Central World",
-                  "value":42
+                "place":"Central World",
+                "value":28104
               },
               {  
-                  "place":"Central EastVille",
-                  "value":29
+                "place":"Central EastVille",
+                "value":27964
               }
-            ],
-            "tier":{  
-              "starter":114,
-              "silver":86,
-              "gold":63,
-              "platinum":29
-            },
-            "class":{  
-              "handshake":116,
-              "experience":81,
-              "belonging":47,
-              "viral":30,
-              "never_leave":18
-            }
-        },
-        {  
-            "period":"07-Aug-2019",
-            "mainAmount":{  
-              "active":267,
-              "total":26238
-            },
-            "gender":{  
-              "gentleman":122,
-              "lady":116,
-              "other":29
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":58678,
+              "silver":52731,
+              "gold":42958,
+              "platinum":38553
+          },
+          "class":{  
+              "handshake":40015,
+              "experience":51681,
+              "belonging":42419,
+              "viral":28968,
+              "never_leave":29837
+          }
+        },{  
+          "period":"07-Aug-2019",
+          "mainAmount":{  
+              "active":133128,
+              "total":257043245
+          },
+          "gender":{  
+              "gentleman":55847,
+              "lady":63735,
+              "other":13546
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":13
+                "range":"12-17",
+                "value":7112
               },
               {  
-                  "range":"18-24",
-                  "value":44
+                "range":"18-24",
+                "value":24862
               },
               {  
-                  "range":"25-34",
-                  "value":54
+                "range":"25-34",
+                "value":29215
               },
               {  
-                  "range":"35-44",
-                  "value":51
+                "range":"35-44",
+                "value":28078
               },
               {  
-                  "range":"45-54",
-                  "value":40
+                "range":"45-54",
+                "value":19312
               },
               {  
-                  "range":"55-64",
-                  "value":25
+                "range":"55-64",
+                "value":14016
               },
               {  
-                  "range":"65+",
-                  "value":40
+                "range":"65+",
+                "value":10533
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":43
+                "place":"Central Ladprao",
+                "value":19973
               },
               {  
-                  "place":"Central Embassy",
-                  "value":46
+                "place":"Central Embassy",
+                "value":21591
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":29
+                "place":"Mega Bangna",
+                "value":15973
               },
               {  
-                  "place":"Icon Siam",
-                  "value":26
+                "place":"Icon Siam",
+                "value":15064
               },
               {  
-                  "place":"Emporium",
-                  "value":53
+                "place":"Emporium",
+                "value":26018
               },
               {  
-                  "place":"Central World",
-                  "value":34
+                "place":"Central World",
+                "value":18741
               },
               {  
-                  "place":"Central EastVille",
-                  "value":36
+                "place":"Central EastVille",
+                "value":15768
               }
-            ],
-            "tier":{  
-              "starter":116,
-              "silver":85,
-              "gold":57,
-              "platinum":9
-            },
-            "class":{  
-              "handshake":109,
-              "experience":70,
-              "belonging":41,
-              "viral":30,
-              "never_leave":17
-            }
-        },
-        {  
-            "period":"08-Aug-2019",
-            "mainAmount":{  
-              "active":267,
-              "total":26247
-            },
-            "gender":{  
-              "gentleman":112,
-              "lady":129,
-              "other":26
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":34436,
+              "silver":43723,
+              "gold":28574,
+              "platinum":26395
+          },
+          "class":{  
+              "handshake":29726,
+              "experience":31910,
+              "belonging":24903,
+              "viral":22277,
+              "never_leave":24312
+          }
+        },{  
+          "period":"08-Aug-2019",
+          "mainAmount":{  
+              "active":127755,
+              "total":257171000
+          },
+          "gender":{  
+              "gentleman":56138,
+              "lady":59879,
+              "other":11738
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":14
+                "range":"12-17",
+                "value":6499
               },
               {  
-                  "range":"18-24",
-                  "value":46
+                "range":"18-24",
+                "value":22084
               },
               {  
-                  "range":"25-34",
-                  "value":50
+                "range":"25-34",
+                "value":27973
               },
               {  
-                  "range":"35-44",
-                  "value":50
+                "range":"35-44",
+                "value":26980
               },
               {  
-                  "range":"45-54",
-                  "value":37
+                "range":"45-54",
+                "value":17839
               },
               {  
-                  "range":"55-64",
-                  "value":26
+                "range":"55-64",
+                "value":13007
               },
               {  
-                  "range":"65+",
-                  "value":44
+                "range":"65+",
+                "value":13373
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":39
+                "place":"Central Ladprao",
+                "value":19724
               },
               {  
-                  "place":"Central Embassy",
-                  "value":42
+                "place":"Central Embassy",
+                "value":20524
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":30
+                "place":"Mega Bangna",
+                "value":14433
               },
               {  
-                  "place":"Icon Siam",
-                  "value":30
+                "place":"Icon Siam",
+                "value":13890
               },
               {  
-                  "place":"Emporium",
-                  "value":51
+                "place":"Emporium",
+                "value":25386
               },
               {  
-                  "place":"Central World",
-                  "value":37
+                "place":"Central World",
+                "value":16962
               },
               {  
-                  "place":"Central EastVille",
-                  "value":38
+                "place":"Central EastVille",
+                "value":16836
               }
-            ],
-            "tier":{  
-              "starter":109,
-              "silver":76,
-              "gold":54,
-              "platinum":28
-            },
-            "class":{  
-              "handshake":103,
-              "experience":73,
-              "belonging":44,
-              "viral":32,
-              "never_leave":15
-            }
-        },
-        {  
-            "period":"09-Aug-2019",
-            "mainAmount":{  
-              "active":279,
-              "total":26415
-            },
-            "gender":{  
-              "gentleman":121,
-              "lady":130,
-              "other":28
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":33141,
+              "silver":37031,
+              "gold":28848,
+              "platinum":28735
+          },
+          "class":{  
+              "handshake":28278,
+              "experience":29768,
+              "belonging":23070,
+              "viral":22428,
+              "never_leave":24211
+          }
+        },{  
+          "period":"09-Aug-2019",
+          "mainAmount":{  
+              "active":179405,
+              "total":257350405
+          },
+          "gender":{  
+              "gentleman":73705,
+              "lady":88152,
+              "other":17548
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":13
+                "range":"12-17",
+                "value":9131
               },
               {  
-                  "range":"18-24",
-                  "value":55
+                "range":"18-24",
+                "value":35151
               },
               {  
-                  "range":"25-34",
-                  "value":60
+                "range":"25-34",
+                "value":37096
               },
               {  
-                  "range":"35-44",
-                  "value":52
+                "range":"35-44",
+                "value":39059
               },
               {  
-                  "range":"45-54",
-                  "value":37
+                "range":"45-54",
+                "value":22801
               },
               {  
-                  "range":"55-64",
-                  "value":30
+                "range":"55-64",
+                "value":19607
               },
               {  
-                  "range":"65+",
-                  "value":32
+                "range":"65+",
+                "value":16560
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":38
+                "place":"Central Ladprao",
+                "value":25614
               },
               {  
-                  "place":"Central Embassy",
-                  "value":47
+                "place":"Central Embassy",
+                "value":26054
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":35
+                "place":"Mega Bangna",
+                "value":21892
               },
               {  
-                  "place":"Icon Siam",
-                  "value":30
+                "place":"Icon Siam",
+                "value":20055
               },
               {  
-                  "place":"Emporium",
-                  "value":58
+                "place":"Emporium",
+                "value":34438
               },
               {  
-                  "place":"Central World",
-                  "value":39
+                "place":"Central World",
+                "value":25241
               },
               {  
-                  "place":"Central EastVille",
-                  "value":32
+                "place":"Central EastVille",
+                "value":26111
               }
-            ],
-            "tier":{  
-              "starter":101,
-              "silver":87,
-              "gold":52,
-              "platinum":39
-            },
-            "class":{  
-              "handshake":105,
-              "experience":78,
-              "belonging":41,
-              "viral":32,
-              "never_leave":23
-            }
-        },
-        {  
-            "period":"10-Aug-2019",
-            "mainAmount":{  
-              "active":253,
-              "total":26598
-            },
-            "gender":{  
-              "gentleman":120,
-              "lady":110,
-              "other":23
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":49134,
+              "silver":57911,
+              "gold":42474,
+              "platinum":29886
+          },
+          "class":{  
+              "handshake":38817,
+              "experience":48020,
+              "belonging":38631,
+              "viral":29502,
+              "never_leave":24435
+          }
+        },{  
+          "period":"10-Aug-2019",
+          "mainAmount":{  
+              "active":187960,
+              "total":257538365
+          },
+          "gender":{  
+              "gentleman":88230,
+              "lady":81343,
+              "other":18387
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":12
+                "range":"12-17",
+                "value":9273
               },
               {  
-                  "range":"18-24",
-                  "value":47
+                "range":"18-24",
+                "value":31940
               },
               {  
-                  "range":"25-34",
-                  "value":50
+                "range":"25-34",
+                "value":34622
               },
               {  
-                  "range":"35-44",
-                  "value":49
+                "range":"35-44",
+                "value":37724
               },
               {  
-                  "range":"45-54",
-                  "value":34
+                "range":"45-54",
+                "value":24097
               },
               {  
-                  "range":"55-64",
-                  "value":24
+                "range":"55-64",
+                "value":17531
               },
               {  
-                  "range":"65+",
-                  "value":37
+                "range":"65+",
+                "value":32773
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":40
+                "place":"Central Ladprao",
+                "value":27056
               },
               {  
-                  "place":"Central Embassy",
-                  "value":37
+                "place":"Central Embassy",
+                "value":30789
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":31
+                "place":"Mega Bangna",
+                "value":22007
               },
               {  
-                  "place":"Icon Siam",
-                  "value":30
+                "place":"Icon Siam",
+                "value":21535
               },
               {  
-                  "place":"Emporium",
-                  "value":51
+                "place":"Emporium",
+                "value":35546
               },
               {  
-                  "place":"Central World",
-                  "value":33
+                "place":"Central World",
+                "value":28891
               },
               {  
-                  "place":"Central EastVille",
-                  "value":31
+                "place":"Central EastVille",
+                "value":22136
               }
-            ],
-            "tier":{  
-              "starter":95,
-              "silver":83,
-              "gold":52,
-              "platinum":23
-            },
-            "class":{  
-              "handshake":92,
-              "experience":64,
-              "belonging":34,
-              "viral":26,
-              "never_leave":37
-            }
-        },
-        {  
-            "period":"11-Aug-2019",
-            "mainAmount":{  
-              "active":245,
-              "total":26915
-            },
-            "gender":{  
-              "gentleman":113,
-              "lady":106,
-              "other":26
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":50523,
+              "silver":59630,
+              "gold":42219,
+              "platinum":35588
+          },
+          "class":{  
+              "handshake":38384,
+              "experience":43299,
+              "belonging":38007,
+              "viral":29304,
+              "never_leave":38966
+          }
+        },{  
+          "period":"11-Aug-2019",
+          "mainAmount":{  
+              "active":143636,
+              "total":257682001
+          },
+          "gender":{  
+              "gentleman":70165,
+              "lady":58693,
+              "other":14778
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":12
+                "range":"12-17",
+                "value":7870
               },
               {  
-                  "range":"18-24",
-                  "value":47
+                "range":"18-24",
+                "value":27150
               },
               {  
-                  "range":"25-34",
-                  "value":49
+                "range":"25-34",
+                "value":28791
               },
               {  
-                  "range":"35-44",
-                  "value":48
+                "range":"35-44",
+                "value":29737
               },
               {  
-                  "range":"45-54",
-                  "value":37
+                "range":"45-54",
+                "value":19312
               },
               {  
-                  "range":"55-64",
-                  "value":23
+                "range":"55-64",
+                "value":15277
               },
               {  
-                  "range":"65+",
-                  "value":29
+                "range":"65+",
+                "value":15499
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":40
+                "place":"Central Ladprao",
+                "value":22868
               },
               {  
-                  "place":"Central Embassy",
-                  "value":39
+                "place":"Central Embassy",
+                "value":25113
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":29
+                "place":"Mega Bangna",
+                "value":17129
               },
               {  
-                  "place":"Icon Siam",
-                  "value":27
+                "place":"Icon Siam",
+                "value":14358
               },
               {  
-                  "place":"Emporium",
-                  "value":52
+                "place":"Emporium",
+                "value":26443
               },
               {  
-                  "place":"Central World",
-                  "value":35
+                "place":"Central World",
+                "value":20938
               },
               {  
-                  "place":"Central EastVille",
-                  "value":23
+                "place":"Central EastVille",
+                "value":16787
               }
-            ],
-            "tier":{  
-              "starter":94,
-              "silver":72,
-              "gold":53,
-              "platinum":26
-            },
-            "class":{  
-              "handshake":94,
-              "experience":69,
-              "belonging":39,
-              "viral":25,
-              "never_leave":18
-            }
-        },
-        {  
-            "period":"12-Aug-2019",
-            "mainAmount":{  
-              "active":273,
-              "total":27359
-            },
-            "gender":{  
-              "gentleman":132,
-              "lady":116,
-              "other":25
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":42246,
+              "silver":40405,
+              "gold":33240,
+              "platinum":27745
+          },
+          "class":{  
+              "handshake":31953,
+              "experience":37861,
+              "belonging":28202,
+              "viral":21874,
+              "never_leave":23746
+          }
+        },{  
+          "period":"12-Aug-2019",
+          "mainAmount":{  
+              "active":168742,
+              "total":257850743
+          },
+          "gender":{  
+              "gentleman":72104,
+              "lady":80713,
+              "other":15925
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":13
+                "range":"12-17",
+                "value":7618
               },
               {  
-                  "range":"18-24",
-                  "value":53
+                "range":"18-24",
+                "value":30070
               },
               {  
-                  "range":"25-34",
-                  "value":55
+                "range":"25-34",
+                "value":30395
               },
               {  
-                  "range":"35-44",
-                  "value":50
+                "range":"35-44",
+                "value":33386
               },
               {  
-                  "range":"45-54",
-                  "value":36
+                "range":"45-54",
+                "value":25742
               },
               {  
-                  "range":"55-64",
-                  "value":28
+                "range":"55-64",
+                "value":15805
               },
               {  
-                  "range":"65+",
-                  "value":38
+                "range":"65+",
+                "value":25726
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":39
+                "place":"Central Ladprao",
+                "value":25781
               },
               {  
-                  "place":"Central Embassy",
-                  "value":44
+                "place":"Central Embassy",
+                "value":27302
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":34
+                "place":"Mega Bangna",
+                "value":19889
               },
               {  
-                  "place":"Icon Siam",
-                  "value":30
+                "place":"Icon Siam",
+                "value":18488
               },
               {  
-                  "place":"Emporium",
-                  "value":60
+                "place":"Emporium",
+                "value":36285
               },
               {  
-                  "place":"Central World",
-                  "value":38
+                "place":"Central World",
+                "value":24499
               },
               {  
-                  "place":"Central EastVille",
-                  "value":28
+                "place":"Central EastVille",
+                "value":16498
               }
-            ],
-            "tier":{  
-              "starter":112,
-              "silver":78,
-              "gold":50,
-              "platinum":33
-            },
-            "class":{  
-              "handshake":104,
-              "experience":75,
-              "belonging":38,
-              "viral":28,
-              "never_leave":28
-            }
-        },
-        {  
-            "period":"13-Aug-2019",
-            "mainAmount":{  
-              "active":276,
-              "total":27825
-            },
-            "gender":{  
-              "gentleman":118,
-              "lady":133,
-              "other":25
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":47667,
+              "silver":55669,
+              "gold":40347,
+              "platinum":25059
+          },
+          "class":{  
+              "handshake":37825,
+              "experience":42333,
+              "belonging":32118,
+              "viral":29167,
+              "never_leave":27299
+          }
+        },{  
+          "period":"13-Aug-2019",
+          "mainAmount":{  
+              "active":194967,
+              "total":258045710
+          },
+          "gender":{  
+              "gentleman":82665,
+              "lady":92811,
+              "other":19491
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":13
+                "range":"12-17",
+                "value":10119
               },
               {  
-                  "range":"18-24",
-                  "value":46
+                "range":"18-24",
+                "value":32990
               },
               {  
-                  "range":"25-34",
-                  "value":54
+                "range":"25-34",
+                "value":40585
               },
               {  
-                  "range":"35-44",
-                  "value":60
+                "range":"35-44",
+                "value":41183
               },
               {  
-                  "range":"45-54",
-                  "value":39
+                "range":"45-54",
+                "value":29443
               },
               {  
-                  "range":"55-64",
-                  "value":30
+                "range":"55-64",
+                "value":17617
               },
               {  
-                  "range":"65+",
-                  "value":34
+                "range":"65+",
+                "value":23030
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":40
+                "place":"Central Ladprao",
+                "value":31605
               },
               {  
-                  "place":"Central Embassy",
-                  "value":47
+                "place":"Central Embassy",
+                "value":32837
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":30
+                "place":"Mega Bangna",
+                "value":23423
               },
               {  
-                  "place":"Icon Siam",
-                  "value":31
+                "place":"Icon Siam",
+                "value":23479
               },
               {  
-                  "place":"Emporium",
-                  "value":60
+                "place":"Emporium",
+                "value":42735
               },
               {  
-                  "place":"Central World",
-                  "value":40
+                "place":"Central World",
+                "value":29516
               },
               {  
-                  "place":"Central EastVille",
-                  "value":28
+                "place":"Central EastVille",
+                "value":11372
               }
-            ],
-            "tier":{  
-              "starter":118,
-              "silver":76,
-              "gold":52,
-              "platinum":30
-            },
-            "class":{  
-              "handshake":112,
-              "experience":80,
-              "belonging":39,
-              "viral":32,
-              "never_leave":13
-            }
-        },
-        {  
-            "period":"14-Aug-2019",
-            "mainAmount":{  
-              "active":271,
-              "total":28049
-            },
-            "gender":{  
-              "gentleman":130,
-              "lady":112,
-              "other":29
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":53304,
+              "silver":60746,
+              "gold":46715,
+              "platinum":34202
+          },
+          "class":{  
+              "handshake":44105,
+              "experience":49043,
+              "belonging":35767,
+              "viral":28441,
+              "never_leave":37611
+          }
+        },{  
+          "period":"14-Aug-2019",
+          "mainAmount":{  
+              "active":150060,
+              "total":258195770
+          },
+          "gender":{  
+              "gentleman":71577,
+              "lady":63529,
+              "other":14954
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":14
+                "range":"12-17",
+                "value":7949
               },
               {  
-                  "range":"18-24",
-                  "value":50
+                "range":"18-24",
+                "value":25778
               },
               {  
-                  "range":"25-34",
-                  "value":54
+                "range":"25-34",
+                "value":30671
               },
               {  
-                  "range":"35-44",
-                  "value":57
+                "range":"35-44",
+                "value":27179
               },
               {  
-                  "range":"45-54",
-                  "value":41
+                "range":"45-54",
+                "value":22753
               },
               {  
-                  "range":"55-64",
-                  "value":25
+                "range":"55-64",
+                "value":15865
               },
               {  
-                  "range":"65+",
-                  "value":30
+                "range":"65+",
+                "value":19865
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":40
+                "place":"Central Ladprao",
+                "value":24364
               },
               {  
-                  "place":"Central Embassy",
-                  "value":41
+                "place":"Central Embassy",
+                "value":23628
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":30
+                "place":"Mega Bangna",
+                "value":17317
               },
               {  
-                  "place":"Icon Siam",
-                  "value":31
+                "place":"Icon Siam",
+                "value":16324
               },
               {  
-                  "place":"Emporium",
-                  "value":57
+                "place":"Emporium",
+                "value":28886
               },
               {  
-                  "place":"Central World",
-                  "value":39
+                "place":"Central World",
+                "value":23050
               },
               {  
-                  "place":"Central EastVille",
-                  "value":33
+                "place":"Central EastVille",
+                "value":16491
               }
-            ],
-            "tier":{  
-              "starter":100,
-              "silver":73,
-              "gold":59,
-              "platinum":39
-            },
-            "class":{  
-              "handshake":119,
-              "experience":69,
-              "belonging":42,
-              "viral":31,
-              "never_leave":10
-            }
-        },
-        {  
-            "period":"15-Aug-2019",
-            "mainAmount":{  
-              "active":257,
-              "total":28066
-            },
-            "gender":{  
-              "gentleman":110,
-              "lady":122,
-              "other":25
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":43673,
+              "silver":45638,
+              "gold":33487,
+              "platinum":27262
+          },
+          "class":{  
+              "handshake":29583,
+              "experience":36578,
+              "belonging":31294,
+              "viral":23665,
+              "never_leave":28940
+          }
+        },{  
+          "period":"15-Aug-2019",
+          "mainAmount":{  
+              "active":201721,
+              "total":258397491
+          },
+          "gender":{  
+              "gentleman":83771,
+              "lady":97944,
+              "other":20006
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":12
+                "range":"12-17",
+                "value":10960
               },
               {  
-                  "range":"18-24",
-                  "value":47
+                "range":"18-24",
+                "value":37231
               },
               {  
-                  "range":"25-34",
-                  "value":54
+                "range":"25-34",
+                "value":38906
               },
               {  
-                  "range":"35-44",
-                  "value":52
+                "range":"35-44",
+                "value":39840
               },
               {  
-                  "range":"45-54",
-                  "value":39
+                "range":"45-54",
+                "value":28923
               },
               {  
-                  "range":"55-64",
-                  "value":28
+                "range":"55-64",
+                "value":20101
               },
               {  
-                  "range":"65+",
-                  "value":25
+                "range":"65+",
+                "value":25760
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":35
+                "place":"Central Ladprao",
+                "value":32344
               },
               {  
-                  "place":"Central Embassy",
-                  "value":39
+                "place":"Central Embassy",
+                "value":32955
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":29
+                "place":"Mega Bangna",
+                "value":24127
               },
               {  
-                  "place":"Icon Siam",
-                  "value":30
+                "place":"Icon Siam",
+                "value":23470
               },
               {  
-                  "place":"Emporium",
-                  "value":48
+                "place":"Emporium",
+                "value":39397
               },
               {  
-                  "place":"Central World",
-                  "value":35
+                "place":"Central World",
+                "value":26162
               },
               {  
-                  "place":"Central EastVille",
-                  "value":41
+                "place":"Central EastVille",
+                "value":23266
               }
-            ],
-            "tier":{  
-              "starter":107,
-              "silver":75,
-              "gold":46,
-              "platinum":29
-            },
-            "class":{  
-              "handshake":108,
-              "experience":74,
-              "belonging":42,
-              "viral":29,
-              "never_leave":4
-            }
-        },
-        {  
-            "period":"16-Aug-2019",
-            "mainAmount":{  
-              "active":207,
-              "total":28461
-            },
-            "gender":{  
-              "gentleman":93,
-              "lady":92,
-              "other":22
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":52743,
+              "silver":62734,
+              "gold":44261,
+              "platinum":41983
+          },
+          "class":{  
+              "handshake":38563,
+              "experience":54282,
+              "belonging":43812,
+              "viral":33599,
+              "never_leave":31465
+          }
+        },{  
+          "period":"16-Aug-2019",
+          "mainAmount":{  
+              "active":125180,
+              "total":258522671
+          },
+          "gender":{  
+              "gentleman":56824,
+              "lady":56743,
+              "other":11613
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":10
+                "range":"12-17",
+                "value":6519
               },
               {  
-                  "range":"18-24",
-                  "value":36
+                "range":"18-24",
+                "value":24725
               },
               {  
-                  "range":"25-34",
-                  "value":43
+                "range":"25-34",
+                "value":26240
               },
               {  
-                  "range":"35-44",
-                  "value":42
+                "range":"35-44",
+                "value":26937
               },
               {  
-                  "range":"45-54",
-                  "value":30
+                "range":"45-54",
+                "value":18660
               },
               {  
-                  "range":"55-64",
-                  "value":21
+                "range":"55-64",
+                "value":11596
               },
               {  
-                  "range":"65+",
-                  "value":25
+                "range":"65+",
+                "value":10503
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":33
+                "place":"Central Ladprao",
+                "value":17001
               },
               {  
-                  "place":"Central Embassy",
-                  "value":32
+                "place":"Central Embassy",
+                "value":20639
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":25
+                "place":"Mega Bangna",
+                "value":15089
               },
               {  
-                  "place":"Icon Siam",
-                  "value":24
+                "place":"Icon Siam",
+                "value":14924
               },
               {  
-                  "place":"Emporium",
-                  "value":39
+                "place":"Emporium",
+                "value":23674
               },
               {  
-                  "place":"Central World",
-                  "value":30
+                "place":"Central World",
+                "value":18549
               },
               {  
-                  "place":"Central EastVille",
-                  "value":24
+                "place":"Central EastVille",
+                "value":15304
               }
-            ],
-            "tier":{  
-              "starter":91,
-              "silver":61,
-              "gold":40,
-              "platinum":15
-            },
-            "class":{  
-              "handshake":83,
-              "experience":58,
-              "belonging":30,
-              "viral":21,
-              "never_leave":15
-            }
-        },
-        {  
-            "period":"17-Aug-2019",
-            "mainAmount":{  
-              "active":211,
-              "total":28628
-            },
-            "gender":{  
-              "gentleman":92,
-              "lady":99,
-              "other":20
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":32202,
+              "silver":38456,
+              "gold":26639,
+              "platinum":27883
+          },
+          "class":{  
+              "handshake":26811,
+              "experience":33546,
+              "belonging":25613,
+              "viral":21911,
+              "never_leave":17299
+          }
+        },{  
+          "period":"17-Aug-2019",
+          "mainAmount":{  
+              "active":152280,
+              "total":258674951
+          },
+          "gender":{  
+              "gentleman":75255,
+              "lady":60474,
+              "other":16551
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":11
+                "range":"12-17",
+                "value":7252
               },
               {  
-                  "range":"18-24",
-                  "value":40
+                "range":"18-24",
+                "value":25774
               },
               {  
-                  "range":"25-34",
-                  "value":43
+                "range":"25-34",
+                "value":32109
               },
               {  
-                  "range":"35-44",
-                  "value":40
+                "range":"35-44",
+                "value":30224
               },
               {  
-                  "range":"45-54",
-                  "value":29
+                "range":"45-54",
+                "value":19269
               },
               {  
-                  "range":"55-64",
-                  "value":23
+                "range":"55-64",
+                "value":13906
               },
               {  
-                  "range":"65+",
-                  "value":25
+                "range":"65+",
+                "value":23746
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":32
+                "place":"Central Ladprao",
+                "value":22153
               },
               {  
-                  "place":"Central Embassy",
-                  "value":35
+                "place":"Central Embassy",
+                "value":24408
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":24
+                "place":"Mega Bangna",
+                "value":17005
               },
               {  
-                  "place":"Icon Siam",
-                  "value":21
+                "place":"Icon Siam",
+                "value":16526
               },
               {  
-                  "place":"Emporium",
-                  "value":40
+                "place":"Emporium",
+                "value":28360
               },
               {  
-                  "place":"Central World",
-                  "value":32
+                "place":"Central World",
+                "value":21516
               },
               {  
-                  "place":"Central EastVille",
-                  "value":27
+                "place":"Central EastVille",
+                "value":22312
               }
-            ],
-            "tier":{  
-              "starter":88,
-              "silver":59,
-              "gold":45,
-              "platinum":19
-            },
-            "class":{  
-              "handshake":85,
-              "experience":55,
-              "belonging":33,
-              "viral":22,
-              "never_leave":16
-            }
-        },
-        {  
-            "period":"18-Aug-2019",
-            "mainAmount":{  
-              "active":204,
-              "total":28973
-            },
-            "gender":{  
-              "gentleman":92,
-              "lady":93,
-              "other":19
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":40169,
+              "silver":48888,
+              "gold":32361,
+              "platinum":30862
+          },
+          "class":{  
+              "handshake":32489,
+              "experience":36545,
+              "belonging":32867,
+              "viral":24734,
+              "never_leave":25645
+          }
+        },{  
+          "period":"18-Aug-2019",
+          "mainAmount":{  
+              "active":147278,
+              "total":258822229
+          },
+          "gender":{  
+              "gentleman":65009,
+              "lady":67085,
+              "other":15184
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":9
+                "range":"12-17",
+                "value":8062
               },
               {  
-                  "range":"18-24",
-                  "value":38
+                "range":"18-24",
+                "value":25445
               },
               {  
-                  "range":"25-34",
-                  "value":38
+                "range":"25-34",
+                "value":27938
               },
               {  
-                  "range":"35-44",
-                  "value":45
+                "range":"35-44",
+                "value":30508
               },
               {  
-                  "range":"45-54",
-                  "value":28
+                "range":"45-54",
+                "value":19980
               },
               {  
-                  "range":"55-64",
-                  "value":21
+                "range":"55-64",
+                "value":14794
               },
               {  
-                  "range":"65+",
-                  "value":25
+                "range":"65+",
+                "value":20551
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":33
+                "place":"Central Ladprao",
+                "value":24288
               },
               {  
-                  "place":"Central Embassy",
-                  "value":30
+                "place":"Central Embassy",
+                "value":21369
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":26
+                "place":"Mega Bangna",
+                "value":18192
               },
               {  
-                  "place":"Icon Siam",
-                  "value":23
+                "place":"Icon Siam",
+                "value":15364
               },
               {  
-                  "place":"Emporium",
-                  "value":39
+                "place":"Emporium",
+                "value":27128
               },
               {  
-                  "place":"Central World",
-                  "value":27
+                "place":"Central World",
+                "value":22584
               },
               {  
-                  "place":"Central EastVille",
-                  "value":26
+                "place":"Central EastVille",
+                "value":18353
               }
-            ],
-            "tier":{  
-              "starter":82,
-              "silver":56,
-              "gold":38,
-              "platinum":28
-            },
-            "class":{  
-              "handshake":83,
-              "experience":62,
-              "belonging":32,
-              "viral":25,
-              "never_leave":2
-            }
-        },
-        {  
-            "period":"19-Aug-2019",
-            "mainAmount":{  
-              "active":236,
-              "total":29011
-            },
-            "gender":{  
-              "gentleman":108,
-              "lady":106,
-              "other":22
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":44706,
+              "silver":44529,
+              "gold":32049,
+              "platinum":25994
+          },
+          "class":{  
+              "handshake":33444,
+              "experience":34276,
+              "belonging":29050,
+              "viral":24775,
+              "never_leave":25733
+          }
+        },{  
+          "period":"19-Aug-2019",
+          "mainAmount":{  
+              "active":196365,
+              "total":259018594
+          },
+          "gender":{  
+              "gentleman":88036,
+              "lady":89824,
+              "other":18505
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":13
+                "range":"12-17",
+                "value":10542
               },
               {  
-                  "range":"18-24",
-                  "value":43
+                "range":"18-24",
+                "value":33125
               },
               {  
-                  "range":"25-34",
-                  "value":47
+                "range":"25-34",
+                "value":41411
               },
               {  
-                  "range":"35-44",
-                  "value":52
+                "range":"35-44",
+                "value":42491
               },
               {  
-                  "range":"45-54",
-                  "value":35
+                "range":"45-54",
+                "value":27266
               },
               {  
-                  "range":"55-64",
-                  "value":24
+                "range":"55-64",
+                "value":18362
               },
               {  
-                  "range":"65+",
-                  "value":22
+                "range":"65+",
+                "value":23168
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":37
+                "place":"Central Ladprao",
+                "value":30554
               },
               {  
-                  "place":"Central Embassy",
-                  "value":39
+                "place":"Central Embassy",
+                "value":29539
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":31
+                "place":"Mega Bangna",
+                "value":21869
               },
               {  
-                  "place":"Icon Siam",
-                  "value":24
+                "place":"Icon Siam",
+                "value":23287
               },
               {  
-                  "place":"Emporium",
-                  "value":43
+                "place":"Emporium",
+                "value":42312
               },
               {  
-                  "place":"Central World",
-                  "value":32
+                "place":"Central World",
+                "value":25954
               },
               {  
-                  "place":"Central EastVille",
-                  "value":30
+                "place":"Central EastVille",
+                "value":22850
               }
-            ],
-            "tier":{  
-              "starter":96,
-              "silver":73,
-              "gold":46,
-              "platinum":21
-            },
-            "class":{  
-              "handshake":89,
-              "experience":65,
-              "belonging":36,
-              "viral":27,
-              "never_leave":19
-            }
-        },
-        {  
-            "period":"20-Aug-2019",
-            "mainAmount":{  
-              "active":208,
-              "total":29455
-            },
-            "gender":{  
-              "gentleman":91,
-              "lady":96,
-              "other":21
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":56942,
+              "silver":64180,
+              "gold":45814,
+              "platinum":29429
+          },
+          "class":{  
+              "handshake":40642,
+              "experience":46806,
+              "belonging":37802,
+              "viral":28661,
+              "never_leave":42454
+          }
+        },{  
+          "period":"20-Aug-2019",
+          "mainAmount":{  
+              "active":146448,
+              "total":259165042
+          },
+          "gender":{  
+              "gentleman":62469,
+              "lady":69735,
+              "other":14244
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":11
+                "range":"12-17",
+                "value":6718
               },
               {  
-                  "range":"18-24",
-                  "value":35
+                "range":"18-24",
+                "value":27321
               },
               {  
-                  "range":"25-34",
-                  "value":46
+                "range":"25-34",
+                "value":28730
               },
               {  
-                  "range":"35-44",
-                  "value":38
+                "range":"35-44",
+                "value":28976
               },
               {  
-                  "range":"45-54",
-                  "value":31
+                "range":"45-54",
+                "value":19361
               },
               {  
-                  "range":"55-64",
-                  "value":21
+                "range":"55-64",
+                "value":13307
               },
               {  
-                  "range":"65+",
-                  "value":26
+                "range":"65+",
+                "value":22035
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":34
+                "place":"Central Ladprao",
+                "value":23088
               },
               {  
-                  "place":"Central Embassy",
-                  "value":35
+                "place":"Central Embassy",
+                "value":25542
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":23
+                "place":"Mega Bangna",
+                "value":18985
               },
               {  
-                  "place":"Icon Siam",
-                  "value":21
+                "place":"Icon Siam",
+                "value":17445
               },
               {  
-                  "place":"Emporium",
-                  "value":38
+                "place":"Emporium",
+                "value":31155
               },
               {  
-                  "place":"Central World",
-                  "value":27
+                "place":"Central World",
+                "value":22299
               },
               {  
-                  "place":"Central EastVille",
-                  "value":30
+                "place":"Central EastVille",
+                "value":7934
               }
-            ],
-            "tier":{  
-              "starter":75,
-              "silver":58,
-              "gold":38,
-              "platinum":37
-            },
-            "class":{  
-              "handshake":84,
-              "experience":59,
-              "belonging":32,
-              "viral":23,
-              "never_leave":10
-            }
-        },
-        {  
-            "period":"21-Aug-2019",
-            "mainAmount":{  
-              "active":203,
-              "total":29876
-            },
-            "gender":{  
-              "gentleman":98,
-              "lady":86,
-              "other":19
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":44617,
+              "silver":43352,
+              "gold":31127,
+              "platinum":27352
+          },
+          "class":{  
+              "handshake":27698,
+              "experience":33119,
+              "belonging":29740,
+              "viral":21110,
+              "never_leave":34781
+          }
+        },{  
+          "period":"21-Aug-2019",
+          "mainAmount":{  
+              "active":187920,
+              "total":259352962
+          },
+          "gender":{  
+              "gentleman":88989,
+              "lady":79590,
+              "other":19341
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":10
+                "range":"12-17",
+                "value":9635
               },
               {  
-                  "range":"18-24",
-                  "value":38
+                "range":"18-24",
+                "value":35388
               },
               {  
-                  "range":"25-34",
-                  "value":38
+                "range":"25-34",
+                "value":36711
               },
               {  
-                  "range":"35-44",
-                  "value":41
+                "range":"35-44",
+                "value":38656
               },
               {  
-                  "range":"45-54",
-                  "value":27
+                "range":"45-54",
+                "value":28513
               },
               {  
-                  "range":"55-64",
-                  "value":21
+                "range":"55-64",
+                "value":18646
               },
               {  
-                  "range":"65+",
-                  "value":28
+                "range":"65+",
+                "value":20371
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":31
+                "place":"Central Ladprao",
+                "value":25846
               },
               {  
-                  "place":"Central Embassy",
-                  "value":31
+                "place":"Central Embassy",
+                "value":33055
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":27
+                "place":"Mega Bangna",
+                "value":20837
               },
               {  
-                  "place":"Icon Siam",
-                  "value":24
+                "place":"Icon Siam",
+                "value":21272
               },
               {  
-                  "place":"Emporium",
-                  "value":44
+                "place":"Emporium",
+                "value":39770
               },
               {  
-                  "place":"Central World",
-                  "value":29
+                "place":"Central World",
+                "value":26277
               },
               {  
-                  "place":"Central EastVille",
-                  "value":17
+                "place":"Central EastVille",
+                "value":20863
               }
-            ],
-            "tier":{  
-              "starter":78,
-              "silver":66,
-              "gold":41,
-              "platinum":18
-            },
-            "class":{  
-              "handshake":84,
-              "experience":55,
-              "belonging":31,
-              "viral":22,
-              "never_leave":11
-            }
-        },
-        {  
-            "period":"22-Aug-2019",
-            "mainAmount":{  
-              "active":210,
-              "total":30083
-            },
-            "gender":{  
-              "gentleman":85,
-              "lady":102,
-              "other":23
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":51815,
+              "silver":51807,
+              "gold":41126,
+              "platinum":43172
+          },
+          "class":{  
+              "handshake":37516,
+              "experience":47441,
+              "belonging":40607,
+              "viral":32170,
+              "never_leave":30186
+          }
+        },{  
+          "period":"22-Aug-2019",
+          "mainAmount":{  
+              "active":138483,
+              "total":259491445
+          },
+          "gender":{  
+              "gentleman":66768,
+              "lady":56718,
+              "other":14997
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":11
+                "range":"12-17",
+                "value":6360
               },
               {  
-                  "range":"18-24",
-                  "value":39
+                "range":"18-24",
+                "value":24569
               },
               {  
-                  "range":"25-34",
-                  "value":44
+                "range":"25-34",
+                "value":29915
               },
               {  
-                  "range":"35-44",
-                  "value":40
+                "range":"35-44",
+                "value":25944
               },
               {  
-                  "range":"45-54",
-                  "value":29
+                "range":"45-54",
+                "value":19301
               },
               {  
-                  "range":"55-64",
-                  "value":23
+                "range":"55-64",
+                "value":14168
               },
               {  
-                  "range":"65+",
-                  "value":24
+                "range":"65+",
+                "value":18226
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":33
+                "place":"Central Ladprao",
+                "value":20154
               },
               {  
-                  "place":"Central Embassy",
-                  "value":30
+                "place":"Central Embassy",
+                "value":24109
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":25
+                "place":"Mega Bangna",
+                "value":15064
               },
               {  
-                  "place":"Icon Siam",
-                  "value":21
+                "place":"Icon Siam",
+                "value":14218
               },
               {  
-                  "place":"Emporium",
-                  "value":41
+                "place":"Emporium",
+                "value":29568
               },
               {  
-                  "place":"Central World",
-                  "value":31
+                "place":"Central World",
+                "value":20917
               },
               {  
-                  "place":"Central EastVille",
-                  "value":29
+                "place":"Central EastVille",
+                "value":14453
               }
-            ],
-            "tier":{  
-              "starter":83,
-              "silver":58,
-              "gold":43,
-              "platinum":26
-            },
-            "class":{  
-              "handshake":80,
-              "experience":60,
-              "belonging":29,
-              "viral":23,
-              "never_leave":18
-            }
-        },
-        {  
-            "period":"23-Aug-2019",
-            "mainAmount":{  
-              "active":240,
-              "total":30194
-            },
-            "gender":{  
-              "gentleman":101,
-              "lady":117,
-              "other":22
-            },
-            "age":[  
+          ],
+          "tier":{  
+              "starter":38569,
+              "silver":43146,
+              "gold":30114,
+              "platinum":26654
+          },
+          "class":{  
+              "handshake":30136,
+              "experience":38042,
+              "belonging":29630,
+              "viral":23773,
+              "never_leave":16902
+          }
+        },{  
+          "period":"23-Aug-2019",
+          "mainAmount":{  
+              "active":146268,
+              "total":259637713
+          },
+          "gender":{  
+              "gentleman":62074,
+              "lady":69953,
+              "other":14241
+          },
+          "age":[  
               {  
-                  "range":"0-12",
-                  "value":0
+                "range":"0-12",
+                "value":0
               },
               {  
-                  "range":"12-17",
-                  "value":11
+                "range":"12-17",
+                "value":6749
               },
               {  
-                  "range":"18-24",
-                  "value":42
+                "range":"18-24",
+                "value":27327
               },
               {  
-                  "range":"25-34",
-                  "value":51
+                "range":"25-34",
+                "value":29863
               },
               {  
-                  "range":"35-44",
-                  "value":49
+                "range":"35-44",
+                "value":28488
               },
               {  
-                  "range":"45-54",
-                  "value":35
+                "range":"45-54",
+                "value":19807
               },
               {  
-                  "range":"55-64",
-                  "value":22
+                "range":"55-64",
+                "value":16036
               },
               {  
-                  "range":"65+",
-                  "value":30
+                "range":"65+",
+                "value":17998
               }
-            ],
-            "branch":[  
+          ],
+          "branch":[  
               {  
-                  "place":"Central Ladprao",
-                  "value":34
+                "place":"Central Ladprao",
+                "value":22798
               },
               {  
-                  "place":"Central Embassy",
-                  "value":40
+                "place":"Central Embassy",
+                "value":25449
               },
               {  
-                  "place":"Mega Bangna",
-                  "value":26
+                "place":"Mega Bangna",
+                "value":16614
               },
               {  
-                  "place":"Icon Siam",
-                  "value":26
+                "place":"Icon Siam",
+                "value":15207
               },
               {  
-                  "place":"Emporium",
-                  "value":49
+                "place":"Emporium",
+                "value":29315
               },
               {  
-                  "place":"Central World",
-                  "value":32
+                "place":"Central World",
+                "value":20909
               },
               {  
-                  "place":"Central EastVille",
-                  "value":33
+                "place":"Central EastVille",
+                "value":15976
               }
-            ],
-            "tier":{  
-              "starter":98,
-              "silver":70,
-              "gold":49,
-              "platinum":23
-            },
-            "class":{  
-              "handshake":93,
-              "experience":71,
-              "belonging":39,
-              "viral":24,
-              "never_leave":13
-            }
+          ],
+          "tier":{  
+              "starter":41598,
+              "silver":45152,
+              "gold":34918,
+              "platinum":24600
+          },
+          "class":{  
+              "handshake":31408,
+              "experience":39077,
+              "belonging":29229,
+              "viral":24981,
+              "never_leave":21573
+          }
         }
       ]
     }

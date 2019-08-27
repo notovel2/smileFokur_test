@@ -1,8 +1,8 @@
 class SectionData {
   final String title;
   final String type;
-  final double dataOfCurrentYear;
-  final double totalData;
+  final num dataOfCurrentYear;
+  final num totalData;
   final String currency;
   SectionData({
     this.title,

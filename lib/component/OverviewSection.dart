@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:smile_fokus_test/commons/Color.dart';
+import 'package:smile_fokus_test/constant/Color.dart';
 import 'package:smile_fokus_test/component/FlexCard.dart';
 import 'package:smile_fokus_test/model/SectionData.dart';
 
@@ -32,7 +32,7 @@ class OverviewSection extends StatelessWidget {
                           sectionData.title.toUpperCase(), 
                           style: TextStyle(
                             fontFamily: 'Myriad Pro',
-                            color: CustomColors.black,
+                            color: CustomColors.black.color,
                             fontWeight: FontWeight.bold,
                             fontSize: 30,
                           ),
@@ -41,7 +41,7 @@ class OverviewSection extends StatelessWidget {
                           sectionData.type,
                           style: TextStyle(
                             fontFamily: 'Myriad Pro',
-                            color: CustomColors.black,
+                            color: CustomColors.black.color,
                             fontWeight: FontWeight.normal,
                             fontSize: 20,
                           ),
@@ -73,7 +73,7 @@ class OverviewSection extends StatelessWidget {
             formatter.format(data.dataOfCurrentYear),
             style: TextStyle(
               fontFamily: 'Myriad Pro',
-              color: CustomColors.orange,
+              color: CustomColors.orange.color,
               fontWeight: FontWeight.bold,
               fontSize: 30,
             ),
@@ -82,7 +82,7 @@ class OverviewSection extends StatelessWidget {
             "$currentYear ${data.title} (${data.currency})",
             style: TextStyle(
               fontFamily: 'Myriad Pro',
-              color: CustomColors.black,
+              color: CustomColors.black.color,
               fontWeight: FontWeight.normal,
               fontSize: 15,
             ),
@@ -96,7 +96,7 @@ class OverviewSection extends StatelessWidget {
           formatter.format(sectionData.totalData),
           style: TextStyle(
             fontFamily: 'Myriad Pro',
-            color: CustomColors.orange,
+            color: CustomColors.orange.color,
             fontWeight: FontWeight.bold,
             fontSize: 30,
           ),
@@ -105,7 +105,7 @@ class OverviewSection extends StatelessWidget {
           "Total ${sectionData.title} (${sectionData.currency})",
           style: TextStyle(
             fontFamily: 'Myriad Pro',
-            color: CustomColors.black,
+            color: CustomColors.black.color,
             fontWeight: FontWeight.normal,
             fontSize: 15,
           ),
