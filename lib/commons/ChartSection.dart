@@ -1,20 +1,28 @@
 import 'package:flutter/widgets.dart';
-import 'package:smile_fokus_test/component/CustomChart.dart';
 import 'package:smile_fokus_test/component/FlexCard.dart';
+import 'package:smile_fokus_test/component/charts/CustomChart.dart';
 import 'package:smile_fokus_test/model/ChartData.dart';
 
-class ChartSection extends StatelessWidget {
-  ChartSection({Key key, this.chartDatalist, this.domainFn, this.measureFn, this.isVertical = true, this.id, this.title}) : super(key: key);
-  final List<ChartData> chartDatalist;
-  final dynamic Function(ChartData, int) domainFn;
-  final num Function(ChartData, int) measureFn;
+class ChartSection<T> extends StatelessWidget {
+  ChartSection({Key key, 
+                this.chartDatalist, 
+                this.domainFn, 
+                this.measureFn, 
+                this.isVertical = true, 
+                this.id, 
+                this.flex = 4,
+                this.title}) : super(key: key);
+  final List<T> chartDatalist;
+  final dynamic Function(T, int) domainFn;
+  final num Function(T, int) measureFn;
   final String id;
   final bool isVertical;
   final String title;
+  final int flex;
   @override
   Widget build(BuildContext context) {
     return FlexCard(
-      flex: 3,
+      flex: flex,
       child: CustomChart(
         id: this.id,
         title: this.title,

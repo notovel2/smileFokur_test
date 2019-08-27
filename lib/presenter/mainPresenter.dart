@@ -19,15 +19,15 @@ class MainPresenter {
     List<ChartData> chartData = (response['data'] as List)
                                         .map((item) => ChartData.fromJson(item))
                                         .toList();
+    List<BranchSummary> branchlist = (response['branch_summary'] as List)
+                                        .map((item) => BranchSummary.fromJson(item))
+                                        .toList();
     chartData = ((chartData.length) - 12 > 0) ? chartData.sublist(chartData.length - 12) : chartData;
     return ChartModel(
       datalist: chartData,
       total: response['total'] as num,
-      totalCurrentYear: response['total_current_year'] as num
+      totalCurrentYear: response['total_current_year'] as num,
+      branchSummaryList: branchlist
     );
-  }
-
-  ChartModel getPerformanceData(List<ChartData> chartData) {
-    // chartData.sort((a, b) => a.branches > b.branches);
   }
 }

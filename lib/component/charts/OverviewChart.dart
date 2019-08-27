@@ -1,12 +1,18 @@
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:smile_fokus_test/component/charts/CustomChart.dart';
 import 'package:smile_fokus_test/constant/Color.dart';
-import 'package:smile_fokus_test/component/FlexCard.dart';
 import 'package:smile_fokus_test/model/ChartData.dart';
 
-class CustomChart extends StatefulWidget {
-  CustomChart({Key key, this.chartDatalist, this.domainFn, this.measureFn, this.isVertical = true, this.id, this.title}) : super(key: key);
+class OverviewChart extends StatefulWidget implements CustomChart {
+  OverviewChart({Key key, 
+                this.chartDatalist, 
+                this.domainFn, 
+                this.measureFn, 
+                this.isVertical = true, 
+                this.id, 
+                this.title}) : super(key: key);
   List<ChartData> chartDatalist;
   final dynamic Function(ChartData, int) domainFn;
   final num Function(ChartData, int) measureFn;
@@ -17,7 +23,7 @@ class CustomChart extends StatefulWidget {
   _ChartState createState() => _ChartState();
 }
 
-class _ChartState extends State<CustomChart> {
+class _ChartState extends State<OverviewChart> {
   
   charts.Color _getColor(ChartData chartData, bool isLast) {
     DateTime now = DateTime.now();

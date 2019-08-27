@@ -8,6 +8,36 @@ class Constants {
   {
     "total": 259637713,
     "total_current_year": 3891794,
+    "branch_summary": [
+      {
+        "place": "Central Ladprao",
+        "value": 577148,
+      },
+      {
+        "place": "Central Embassy",
+        "value": 635241,
+      },
+      {
+        "place": "Mega Bangna",
+        "value": 459604,
+      },
+      {
+        "place": "Icon Siam",
+        "value": 424724,
+      },
+      {
+        "place": "Emporium",
+        "value": 780791,
+      },
+      {
+        "place": "Central World",
+        "value": 554224,
+      },
+      {
+        "place": "Central EastVille",
+        "value": 460062,
+      },
+    ],
     "data": [
       {  
         "period":"01-Aug-2019",
@@ -2041,6 +2071,36 @@ class Constants {
     {  
       "total": 30194,
       "total_current_year": 5805,
+      "branch_summary": [
+        {
+          "place": "Central Ladprao",
+          "value": 883,
+        },
+        {
+          "place": "Central Embassy",
+          "value": 930,
+        },
+        {
+          "place": "Mega Bangna",
+          "value": 688,
+        },
+        {
+          "place": "Icon Siam",
+          "value": 640,
+        },
+        {
+          "place": "Emporium",
+          "value": 1165,
+        },
+        {
+          "place": "Central World",
+          "value": 809,
+        },
+        {
+          "place": "Central EastVille",
+          "value": 690,
+        },
+      ],
       "data":[  
         {  
           "period":"01-Aug-2019",
