@@ -56,12 +56,20 @@ class _PerformanceChartState extends State<PerformanceChart> {
         domainFn: (BranchSummary chartData, _) => chartData.place,
         fillColorFn: (BranchSummary chartData, index) => _getColor(chartData, index == chartDatalist.length - 1),
         data: chartDatalist,
+        labelAccessorFn: (BranchSummary chartData, _) => "${chartData.place}",
+        insideLabelStyleAccessorFn: (BranchSummary chartData, _) => charts.TextStyleSpec(color: charts.Color.fromHex(code: CustomColors.black.hex)),
+        outsideLabelStyleAccessorFn: (BranchSummary chartData, _) => charts.TextStyleSpec(color: charts.Color.fromHex(code: CustomColors.black.hex))
       )
     ];
     return charts.BarChart(
       series,
       animate: true,
-      vertical: widget.isVertical,        
+      vertical: widget.isVertical,  
+      barRendererDecorator: charts.BarLabelDecorator<String>(
+        labelPosition: charts.BarLabelPosition.outside,
+        labelPadding: 60
+      ),  
+      
       primaryMeasureAxis: charts.NumericAxisSpec(
         renderSpec: charts.NoneRenderSpec(),
       ),
@@ -69,6 +77,14 @@ class _PerformanceChartState extends State<PerformanceChart> {
         showAxisLine: false,
         renderSpec: charts.NoneRenderSpec(),
       ),
+      behaviors: [
+        charts.ChartTitle(
+          widget.title,
+          behaviorPosition: charts.BehaviorPosition.top,
+          titleOutsideJustification: charts.OutsideJustification.startDrawArea,
+          innerPadding: 10
+        ),
+      ],
     );
   }
 }
