@@ -12,12 +12,15 @@ class OverviewChart extends CustomChart<ChartData> {
                 this.measureFn, 
                 this.isVertical = true, 
                 this.id, 
+                this.onTap,
                 this.title}) : super(key: key);
   final dynamic Function(ChartData, int) domainFn;
   final num Function(ChartData, int) measureFn;
   final String id;
   final bool isVertical;
   final String title;
+  @override
+  Function(charts.SelectionModel) onTap;
   @override
   List<ChartData> chartDatalist;
   @override
@@ -50,6 +53,7 @@ class _ChartState extends State<OverviewChart> {
       series,
       animate: true,
       vertical: widget.isVertical,        
+      
       primaryMeasureAxis: charts.NumericAxisSpec(
         renderSpec: charts.NoneRenderSpec(),
       ),
@@ -64,6 +68,10 @@ class _ChartState extends State<OverviewChart> {
           titleOutsideJustification: charts.OutsideJustification.startDrawArea,
           innerPadding: 10
         ),
+      ],
+      selectionModels: [
+        charts.SelectionModelConfig(type: charts.SelectionModelType.info,
+                                      changedListener: widget.onTap)
       ],
     );
   }

@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class FlexCard extends StatelessWidget {
-  FlexCard({this.child, this.flex});
-  int flex;
-  Widget child;
+  FlexCard({this.child, this.flex, this.onTap});
+  final int flex;
+  final Widget child;
+  final Function onTap;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -20,7 +21,7 @@ class FlexCard extends StatelessWidget {
           ],
         ),
         margin: EdgeInsets.all(3),
-        child: child,
+        child: child,          
       ),
     );
   }

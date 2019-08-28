@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smile_fokus_test/commons/ChartSection.dart';
+import 'package:smile_fokus_test/commons/CustomAppbar.dart';
 import 'package:smile_fokus_test/component/charts/OverviewChart.dart';
 import 'package:smile_fokus_test/component/charts/PerformanceChart.dart';
 import 'package:smile_fokus_test/constant/Color.dart';
@@ -8,21 +9,22 @@ import 'package:smile_fokus_test/component/OverviewSection.dart';
 import 'package:smile_fokus_test/constant/enums.dart';
 import 'package:smile_fokus_test/model/MainModel.dart';
 import 'package:smile_fokus_test/model/SectionData.dart';
-import 'package:smile_fokus_test/model/UserProfile.dart';
 import 'package:smile_fokus_test/model/chart/BranchSummaryChartModel.dart';
 import 'package:smile_fokus_test/model/chart/ChartData.dart';
 import 'package:smile_fokus_test/presenter/mainPresenter.dart';
+import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:smile_fokus_test/view/totalPage.dart';
 
-class MainView extends StatefulWidget {
-  MainView({Key key, this.title}) : super(key: key);
+class MainPage extends StatefulWidget {
+  MainPage({Key key, this.title}) : super(key: key);
   final MainPresenter presenter = MainPresenter();
   final String title;
 
   @override
-  _MainViewState createState() => _MainViewState();
+  _MainPageState createState() => _MainPageState();
 }
 
-class _MainViewState extends State<MainView> {
+class _MainPageState extends State<MainPage> {
   MainChartResponse revenueData;
   MainChartResponse memberData;
   @override
@@ -44,93 +46,14 @@ class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(20),
-          child: Container(
-            height: 73.4,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    alignment: Alignment.centerLeft,
-                    child: new Image.asset('assets/logo.png'),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    child: Row(
-                      children: <Widget>[
-                        Container(
-                          margin: EdgeInsets.only(right: 10),
-                          child: new Image.asset('assets/user_image.png'),
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              "${UserProfile.shared.firstName} ${UserProfile.shared.lastName}",
-                              style: TextStyle(
-                                color: CustomColors.orange.color,
-                                fontFamily: 'Myriad Pro',
-                                fontSize: 20,
-                              ),
-                            ),
-                            Text(
-                              UserProfile.shared.location,
-                              style: TextStyle(
-                                color: CustomColors.gray.color,
-                                fontFamily: 'Myriad Pro',
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    color: CustomColors.orange.color,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        Text(
-                          'MENU',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 12,
-                            fontFamily: 'Myriad Pro',
-                          ),
-                        ),
-                        new Image.asset('assets/heart.png'),
-                      ],
-                    ),
-                  ),
-                ),
-                                    
-              ],
-            ),
-          ),
-        ),
-        backgroundColor: CustomColors.bgBlack.color,
-      ),
+      appBar: CustomAppbar.appBar,
       body: Center(
         child: SafeArea(
           child: Container(
-            color: CustomColors.bgGray.color,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Breadcrumb(),
+                Breadcrumb(parentContext: context,),
                 Expanded(
                   flex: 1,
                   child: Container(
@@ -141,12 +64,15 @@ class _MainViewState extends State<MainView> {
                           sectionData: SectionData(
                             title: "Revenue",
                             type: "Corporate",
-                            currency: "THB",
+                            currency: "(THB)",
                             dataOfCurrentYear: revenueData.totalCurrentYear,
                             totalData: revenueData.total,
                           ),
                         ),
                         ChartSection<ChartData>(
+                          isShowRightPanel: true,
+                          onTap: () => 
+                            Navigator.pushNamed(context, '/Total_Revenue'),
                           customChart: OverviewChart(
                             chartDatalist: revenueData.datalist,
                             domainFn:  (ChartData data, _) => data.period.toString(),
@@ -169,12 +95,15 @@ class _MainViewState extends State<MainView> {
                           sectionData: SectionData(
                             title: "Member",
                             type: "Corporate",
-                            currency: "THB",
+                            currency: "",
                             dataOfCurrentYear: memberData.totalCurrentYear,
                             totalData: memberData.total,
                           ),
                         ),
                         ChartSection<ChartData>(
+                          isShowRightPanel: true,
+                          onTap: () => 
+                            Navigator.pushNamed(context, '/Total_Member'),
                           customChart: OverviewChart(
                             chartDatalist: memberData.datalist,
                             domainFn:  (ChartData data, _) => data.period.toString(),

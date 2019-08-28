@@ -5,7 +5,8 @@ class BranchSummaryChartModel implements ChartModel<BranchSummary> {
     this.datalist,
     this.total,
     this.totalCurrentYear,
-    this.branchSummaryList
+    this.branchSummaryList,
+    this.latestData
   });
   
   num total;
@@ -13,6 +14,9 @@ class BranchSummaryChartModel implements ChartModel<BranchSummary> {
   List<BranchSummary> branchSummaryList;
   @override
   List<BranchSummary> datalist;
+
+  @override
+  BranchSummary latestData;
 }
 
 class BranchSummary{

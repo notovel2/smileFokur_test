@@ -17,6 +17,7 @@ class CustomChart<T> extends StatefulWidget{
   String id;
   bool isVertical;
   String title;
+  Function(charts.SelectionModel) onTap;
 
   @override
   State<StatefulWidget> createState() => null;

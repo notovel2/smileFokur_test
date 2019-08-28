@@ -31,7 +31,6 @@ class OverviewSection extends StatelessWidget {
                         Text(
                           sectionData.title.toUpperCase(), 
                           style: TextStyle(
-                            fontFamily: 'Myriad Pro',
                             color: CustomColors.black.color,
                             fontWeight: FontWeight.bold,
                             fontSize: 30,
@@ -40,7 +39,6 @@ class OverviewSection extends StatelessWidget {
                         Text(
                           sectionData.type,
                           style: TextStyle(
-                            fontFamily: 'Myriad Pro',
                             color: CustomColors.black.color,
                             fontWeight: FontWeight.normal,
                             fontSize: 20,
@@ -72,16 +70,14 @@ class OverviewSection extends StatelessWidget {
           Text(
             formatter.format(data.dataOfCurrentYear),
             style: TextStyle(
-              fontFamily: 'Myriad Pro',
               color: CustomColors.orange.color,
               fontWeight: FontWeight.bold,
               fontSize: 30,
             ),
           ),
           Text(
-            "$currentYear ${data.title} (${data.currency})",
+            "$currentYear ${data.title} ${data.currency}",
             style: TextStyle(
-              fontFamily: 'Myriad Pro',
               color: CustomColors.black.color,
               fontWeight: FontWeight.normal,
               fontSize: 15,
@@ -95,16 +91,14 @@ class OverviewSection extends StatelessWidget {
         Text(
           formatter.format(sectionData.totalData),
           style: TextStyle(
-            fontFamily: 'Myriad Pro',
             color: CustomColors.orange.color,
             fontWeight: FontWeight.bold,
             fontSize: 30,
           ),
         ),
         Text(
-          "Total ${sectionData.title} (${sectionData.currency})",
+          "Total ${sectionData.title} ${sectionData.currency}",
           style: TextStyle(
-            fontFamily: 'Myriad Pro',
             color: CustomColors.black.color,
             fontWeight: FontWeight.normal,
             fontSize: 15,

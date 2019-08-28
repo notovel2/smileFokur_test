@@ -3,12 +3,11 @@ import 'package:smile_fokus_test/constant/enums.dart';
 import 'package:smile_fokus_test/model/MainModel.dart';
 import 'package:smile_fokus_test/model/chart/BranchSummaryChartModel.dart';
 import 'package:smile_fokus_test/model/chart/ChartData.dart';
-import 'package:smile_fokus_test/model/chart/ChartModel.dart';
 import 'package:smile_fokus_test/services/api.dart';
-import 'package:smile_fokus_test/view/mainView.dart';
+import 'package:smile_fokus_test/view/mainPage.dart';
 
 class MainPresenter {
-  MainView view;
+  MainPage view;
   MainChartResponse getChartData(DataType type) {
     Map<String, dynamic> response;
     switch (type) {
