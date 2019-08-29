@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smile_fokus_test/commons/ChartSection.dart';
 import 'package:smile_fokus_test/commons/CustomAppbar.dart';
+import 'package:smile_fokus_test/component/FlexCard.dart';
 import 'package:smile_fokus_test/component/charts/OverviewChart.dart';
 import 'package:smile_fokus_test/component/charts/PerformanceChart.dart';
 import 'package:smile_fokus_test/constant/Color.dart';
@@ -10,7 +11,7 @@ import 'package:smile_fokus_test/constant/enums.dart';
 import 'package:smile_fokus_test/model/MainModel.dart';
 import 'package:smile_fokus_test/model/SectionData.dart';
 import 'package:smile_fokus_test/model/chart/BranchSummaryChartModel.dart';
-import 'package:smile_fokus_test/model/chart/ChartData.dart';
+import 'package:smile_fokus_test/model/chart/OverviewChartModel.dart';
 import 'package:smile_fokus_test/presenter/mainPresenter.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:smile_fokus_test/view/totalPage.dart';
@@ -69,18 +70,22 @@ class _MainPageState extends State<MainPage> {
                             totalData: revenueData.total,
                           ),
                         ),
-                        ChartSection<ChartData>(
-                          isShowRightPanel: true,
-                          onTap: () => 
-                            Navigator.pushNamed(context, '/Total_Revenue'),
-                          customChart: OverviewChart(
-                            chartDatalist: revenueData.datalist,
-                            domainFn:  (ChartData data, _) => data.period.toString(),
-                            measureFn: (ChartData data, _) => data.mainAmount.active,
-                            id: 'Revenue',
-                            title: 'Revenue(THB)',
+                        FlexCard(
+                          flex: 4,
+                          child: ChartSection<OverviewChartModel>(
+                            currency: "THB",
+                            isShowRightPanel: true,
+                            onTap: () => 
+                              Navigator.pushNamed(context, '/Total_Revenue', arguments: revenueData.datalist),
+                            customChart: OverviewChart(
+                              chartDatalist: revenueData.datalist,
+                              domainFn:  (OverviewChartModel data, _) => data.period.toString(),
+                              measureFn: (OverviewChartModel data, _) => data.mainAmount.active,
+                              id: 'Revenue',
+                              title: 'Revenue(THB)',
+                            ),
                           ),
-                        ),
+                        )
                       ],
                     ),
                   ),
@@ -100,18 +105,21 @@ class _MainPageState extends State<MainPage> {
                             totalData: memberData.total,
                           ),
                         ),
-                        ChartSection<ChartData>(
-                          isShowRightPanel: true,
-                          onTap: () => 
-                            Navigator.pushNamed(context, '/Total_Member'),
-                          customChart: OverviewChart(
-                            chartDatalist: memberData.datalist,
-                            domainFn:  (ChartData data, _) => data.period.toString(),
-                            measureFn: (ChartData data, _) => data.mainAmount.active,
-                            id: 'Member',
-                            title: 'Member',
+                        FlexCard(
+                          flex: 4,
+                          child: ChartSection<OverviewChartModel>(
+                            isShowRightPanel: true,
+                            onTap: () => 
+                              Navigator.pushNamed(context, '/Total_Member', arguments: memberData.datalist),
+                            customChart: OverviewChart(
+                              chartDatalist: memberData.datalist,
+                              domainFn:  (OverviewChartModel data, _) => data.period.toString(),
+                              measureFn: (OverviewChartModel data, _) => data.mainAmount.active,
+                              id: 'Member',
+                              title: 'Member',
+                            ),
                           ),
-                        ),
+                        )
                       ],
                     ),
                   ),
@@ -131,25 +139,31 @@ class _MainPageState extends State<MainPage> {
                             totalData: null,
                           ),
                         ),
-                        ChartSection<BranchSummary>(
-                          customChart: PerformanceChart(
-                            chartDatalist: revenueData.branchSummaryList,
-                            domainFn:  (BranchSummary data, _) => data.place,
-                            measureFn: (BranchSummary data, _) => data.value,
-                            isVertical: false,
-                            title: "Revenue (THB)",
-                          ),
+                        FlexCard(
                           flex: 2,
+                          child: ChartSection<BranchSummary>(
+                            customChart: PerformanceChart(
+                              chartDatalist: revenueData.branchSummaryList,
+                              domainFn:  (BranchSummary data, _) => data.place,
+                              measureFn: (BranchSummary data, _) => data.value,
+                              isVertical: false,
+                              title: "Revenue (THB)",
+                            ),
+                            flex: 2,
+                          ),
                         ),
-                        ChartSection<BranchSummary>(
-                          customChart: PerformanceChart(
-                            chartDatalist: memberData.branchSummaryList,
-                            domainFn:  (BranchSummary data, _) => data.place,
-                            measureFn: (BranchSummary data, _) => data.value,
-                            isVertical: false,
-                            title: "Member",
-                          ),
+                        FlexCard(
                           flex: 2,
+                          child: ChartSection<BranchSummary>(
+                            customChart: PerformanceChart(
+                              chartDatalist: memberData.branchSummaryList,
+                              domainFn:  (BranchSummary data, _) => data.place,
+                              measureFn: (BranchSummary data, _) => data.value,
+                              isVertical: false,
+                              title: "Member",
+                            ),
+                            flex: 2,
+                          ),
                         ),
                       ],
                     ),

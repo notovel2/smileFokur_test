@@ -17,7 +17,11 @@ class Breadcrumb extends StatelessWidget {
     return Container(
       child: GestureDetector(
         onTap: (){
-          if(tmpPathList.contains(text)) {
+          String routeName = ModalRoute.of(parentContext).settings.name;
+          if(routeName == null || routeName == '/') {
+            return;
+          }
+          else if(tmpPathList.contains(text)) {
             Navigator.pop(parentContext);
           } else {
             Navigator.popUntil(parentContext, 

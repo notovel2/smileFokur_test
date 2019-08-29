@@ -3,33 +3,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:smile_fokus_test/component/charts/CustomChart.dart';
 import 'package:smile_fokus_test/constant/Color.dart';
-import 'package:smile_fokus_test/model/chart/ChartData.dart';
+import 'package:smile_fokus_test/model/chart/OverviewChartModel.dart';
 
-class OverviewChart extends CustomChart<ChartData> {
+class OverviewChart extends CustomChart<OverviewChartModel> {
   OverviewChart({Key key, 
                 this.chartDatalist, 
                 this.domainFn, 
                 this.measureFn, 
                 this.isVertical = true, 
                 this.id, 
-                this.onTap,
+                this.callback,
+                this.isShowGridline = false,
                 this.title}) : super(key: key);
-  final dynamic Function(ChartData, int) domainFn;
-  final num Function(ChartData, int) measureFn;
+  final dynamic Function(OverviewChartModel, int) domainFn;
+  final num Function(OverviewChartModel, int) measureFn;
   final String id;
   final bool isVertical;
   final String title;
+  final bool isShowGridline;
   @override
-  Function(charts.SelectionModel) onTap;
+  Function callback;
   @override
-  List<ChartData> chartDatalist;
+  List<OverviewChartModel> chartDatalist;
   @override
   State<StatefulWidget> createState() => _ChartState();
 }
 
 class _ChartState extends State<OverviewChart> {
   
-  charts.Color _getColor(ChartData chartData, bool isLast) {
+  charts.Color _getColor(OverviewChartModel chartData, bool isLast) {
     DateTime now = DateTime.now();
     if(chartData.period.year == now.year) {
       return (isLast) ? charts.Color.fromHex(code: CustomColors.orange.hex) : charts.Color.fromHex(code: CustomColors.orangeOpacity.hex);
@@ -39,13 +41,13 @@ class _ChartState extends State<OverviewChart> {
 
   @override
   Widget build(BuildContext context) {
-    List<ChartData> chartDatalist = widget.chartDatalist;
-    List<charts.Series<ChartData, String>> series = [
+    List<OverviewChartModel> chartDatalist = widget.chartDatalist;
+    List<charts.Series<OverviewChartModel, String>> series = [
       charts.Series(
         id: widget.id,
-        measureFn: (ChartData chartData, _) => chartData.mainAmount.active,
-        domainFn: (ChartData chartData, _) => chartData.period.toString(),
-        fillColorFn: (ChartData chartData, index) => _getColor(chartData, index == chartDatalist.length - 1),
+        measureFn: (OverviewChartModel chartData, _) => chartData.mainAmount.active,
+        domainFn: (OverviewChartModel chartData, _) => chartData.period.toString(),
+        fillColorFn: (OverviewChartModel chartData, index) => _getColor(chartData, index == chartDatalist.length - 1),
         data: chartDatalist,
       )
     ];
@@ -55,7 +57,8 @@ class _ChartState extends State<OverviewChart> {
       vertical: widget.isVertical,        
       
       primaryMeasureAxis: charts.NumericAxisSpec(
-        renderSpec: charts.NoneRenderSpec(),
+        renderSpec: (widget.isShowGridline) ? charts.GridlineRendererSpec() 
+                                            : charts.NoneRenderSpec()
       ),
       domainAxis: charts.OrdinalAxisSpec(
         showAxisLine: false,
@@ -71,7 +74,7 @@ class _ChartState extends State<OverviewChart> {
       ],
       selectionModels: [
         charts.SelectionModelConfig(type: charts.SelectionModelType.info,
-                                      changedListener: widget.onTap)
+                                      changedListener: widget.callback)
       ],
     );
   }

@@ -4,38 +4,38 @@ class Constants {
   static final Map<String, dynamic> revenue = jsonDecode(_revenue);
   static final Map<String, dynamic> member = jsonDecode(_member);
 
-  static final String _revenue = """
+  static final String _member = """
   {
     "total": 259637713,
     "total_current_year": 3891794,
     "branch_summary": [
       {
         "place": "Central Ladprao",
-        "value": 577148
+        "value": 883
       },
       {
         "place": "Central Embassy",
-        "value": 635241
+        "value": 930
       },
       {
         "place": "Mega Bangna",
-        "value": 459604
+        "value": 688
       },
       {
         "place": "Icon Siam",
-        "value": 424724
+        "value": 640
       },
       {
         "place": "Emporium",
-        "value": 780791
+        "value": 1165
       },
       {
         "place": "Central World",
-        "value": 554224
+        "value": 809
       },
       {
         "place": "Central EastVille",
-        "value": 460062
+        "value": 690
       }
     ],
     "data": [
@@ -2067,38 +2067,38 @@ class Constants {
     ]
   }
   """;
-  static final String _member = """
+  static final String _revenue = """
     {  
       "total": 30194,
       "total_current_year": 5805,
       "branch_summary": [
         {
           "place": "Central Ladprao",
-          "value": 883
+          "value": 577148
         },
         {
           "place": "Central Embassy",
-          "value": 930
+          "value": 635241
         },
         {
           "place": "Mega Bangna",
-          "value": 688
+          "value": 459604
         },
         {
           "place": "Icon Siam",
-          "value": 640
+          "value": 424724
         },
         {
           "place": "Emporium",
-          "value": 1165
+          "value": 780791
         },
         {
           "place": "Central World",
-          "value": 809
+          "value": 554224
         },
         {
           "place": "Central EastVille",
-          "value": 690
+          "value": 460062
         }
       ],
       "data":[  

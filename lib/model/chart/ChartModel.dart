@@ -1,7 +1,16 @@
-class ChartModel<T> {
-  List<T> datalist;
-  T latestData;
+import 'package:charts_flutter/flutter.dart' as charts;
+
+class ChartModel {
   ChartModel({
-    this.datalist
+    this.domain,
+    this.measure,
+    this.color
   });
+  final String domain;
+  num measure;
+  charts.Color color;
+  ChartModel addMeassure(num addMeasure) {
+    measure += addMeasure;
+    return this;
+  }
 }

@@ -14,13 +14,13 @@ class PerformanceChart extends CustomChart<BranchSummary> {
                       this.measureFn, 
                       this.isVertical = true, 
                       this.id, 
-                      this.onTap,
+                      this.callback,
                       this.title}) : super(key: key);
   @override
   _PerformanceChartState createState() => _PerformanceChartState();
   
   @override
-  Function(charts.SelectionModel) onTap;
+  Function callback;
 
   @override
   List<BranchSummary> chartDatalist;
@@ -90,7 +90,7 @@ class _PerformanceChartState extends State<PerformanceChart> {
       ],
       selectionModels: [
         charts.SelectionModelConfig(type: charts.SelectionModelType.info,
-                                      changedListener: widget.onTap)
+                                      changedListener: widget.callback)
       ],
     );
   }
