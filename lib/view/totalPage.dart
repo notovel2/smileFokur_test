@@ -125,29 +125,29 @@ class _TotalPageState extends State<TotalPage> {
               ),
             ),
           ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              child: charts.BarChart(
-                [
-                  charts.Series<ChartModel, String>(
-                    data: [],
-                    domainFn: (ChartModel model, _) => model.domain,
-                    measureFn: (ChartModel model, _) => model.measure,
-                    id: 'h',
-                  )
-                ]
-              ),
-              // child: SegmentationChart(
-              //   chartDatalist: item.datamap.values.toList(),
-              //   measureFn: (ChartModel data, _) => data.measure,
-              //   domainFn: (ChartModel data, _) => data.domain,
-              //   id: item.title,
-              //   callback: () {},
-              //   title: "",
-              // ),
-            ),
-          )
+          // Expanded(
+          //   flex: 1,
+          //   child: Container(
+          //     child: charts.BarChart(
+          //       [
+          //         charts.Series<ChartModel, String>(
+          //           data: [],
+          //           domainFn: (ChartModel model, _) => model.domain,
+          //           measureFn: (ChartModel model, _) => model.measure,
+          //           id: 'h',
+          //         )
+          //       ]
+          //     ),
+          //     // child: SegmentationChart(
+          //     //   chartDatalist: item.datamap.values.toList(),
+          //     //   measureFn: (ChartModel data, _) => data.measure,
+          //     //   domainFn: (ChartModel data, _) => data.domain,
+          //     //   id: item.title,
+          //     //   callback: () {},
+          //     //   title: "",
+          //     // ),
+          //   ),
+          // )
           
         ],
       );

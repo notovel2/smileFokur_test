@@ -4,7 +4,6 @@ import 'package:smile_fokus_test/constant/Color.dart';
 import 'package:smile_fokus_test/model/UserProfile.dart';
 import 'package:smile_fokus_test/view/mainPage.dart';
 import 'package:smile_fokus_test/view/totalMemberPage.dart';
-import 'package:smile_fokus_test/view/totalPage.dart';
 import 'package:smile_fokus_test/view/totalRevenuePage.dart';
 
 void main() => runApp(MyApp());
