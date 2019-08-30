@@ -7,4 +7,10 @@ class Styles {
     fontSize: 20,
     fontWeight: FontWeight.bold
   );
+
+  static TextStyle highlightedHeaderCard = TextStyle(
+    color: CustomColors.orange.color,
+    fontSize: 20,
+    fontWeight: FontWeight.bold
+  );
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:intl/intl.dart';
 import 'package:smile_fokus_test/component/charts/CustomChart.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:smile_fokus_test/constant/Color.dart';
 import 'package:smile_fokus_test/model/chart/ChartModel.dart';
 
 class SegmentationChart extends CustomChart<ChartModel> {
@@ -25,6 +27,7 @@ class SegmentationChart extends CustomChart<ChartModel> {
 }
 
 class _SegmentationChartState extends State<SegmentationChart> {
+  NumberFormat formatter = NumberFormat.compact(locale: "en_US");
   @override
   Widget build(BuildContext context) {
     return charts.BarChart(
@@ -34,7 +37,7 @@ class _SegmentationChartState extends State<SegmentationChart> {
                   widget.domainFn),
       animate: true,
       vertical: false,
-      defaultInteractions: true,
+      barRendererDecorator: charts.BarLabelDecorator<String>(),
       primaryMeasureAxis: charts.NumericAxisSpec(
         renderSpec: charts.NoneRenderSpec()
       ),
@@ -42,17 +45,7 @@ class _SegmentationChartState extends State<SegmentationChart> {
         showAxisLine: false,
         renderSpec: charts.NoneRenderSpec(),
       ),
-      selectionModels: [
-        charts.SelectionModelConfig(
-          type: charts.SelectionModelType.info,
-          changedListener: _onSelectedBarChanged
-        )
-      ],
     );
-  }
-
-  _onSelectedBarChanged(charts.SelectionModel model){
-    print(model);
   }
 
   List<charts.Series<ChartModel, String>> _getSeries(List<ChartModel> chartDatalist,
@@ -65,7 +58,10 @@ class _SegmentationChartState extends State<SegmentationChart> {
         measureFn: measureFn,
         domainFn: domainFn,
         data: chartDatalist,
-        fillColorFn: (ChartModel segment, _) => segment.color
+        fillColorFn: (ChartModel segment, _) => segment.color,
+        labelAccessorFn: (ChartModel chartData, _) => "${chartData.domain} : ${formatter.format(chartData.measure)}",
+        insideLabelStyleAccessorFn: (ChartModel chartData, _) => charts.TextStyleSpec(color: charts.Color.fromHex(code: CustomColors.black.hex)),
+        outsideLabelStyleAccessorFn: (ChartModel chartData, _) => charts.TextStyleSpec(color: charts.Color.fromHex(code: CustomColors.black.hex))
       )
     ];
   }

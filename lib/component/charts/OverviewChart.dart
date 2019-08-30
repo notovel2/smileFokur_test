@@ -30,11 +30,18 @@ class OverviewChart extends CustomChart<OverviewChartModel> {
 }
 
 class _ChartState extends State<OverviewChart> {
-  
+  DateTime _selectedPeriod;
+
   charts.Color _getColor(OverviewChartModel chartData, bool isLast) {
     DateTime now = DateTime.now();
-    if(chartData.period.year == now.year) {
-      return (isLast) ? charts.Color.fromHex(code: CustomColors.orange.hex) : charts.Color.fromHex(code: CustomColors.orangeOpacity.hex);
+    if(_selectedPeriod != null) {
+      if(chartData.period == _selectedPeriod) {
+        return charts.Color.fromHex(code: CustomColors.orange.hex);
+      } 
+    } else {
+      if(chartData.period.year == now.year) {
+        return (isLast) ? charts.Color.fromHex(code: CustomColors.orange.hex) : charts.Color.fromHex(code: CustomColors.orangeOpacity.hex);
+      }
     }
     return charts.Color.fromHex(code: CustomColors.gray.hex);
   }
@@ -74,8 +81,25 @@ class _ChartState extends State<OverviewChart> {
       ],
       selectionModels: [
         charts.SelectionModelConfig(type: charts.SelectionModelType.info,
-                                      changedListener: widget.callback)
+                                      changedListener: _selectedBarListener)
       ],
+      defaultInteractions: true,
     );
+  }
+
+  _selectedBarListener(charts.SelectionModel model) {
+    var response;
+    DateTime selectedPeriod;
+    if(widget.callback != null) {
+      if (_selectedPeriod == null 
+          || model.selectedDatum.first.datum.period != _selectedPeriod ) {
+        selectedPeriod = model.selectedDatum.first.datum.period;
+        response = model.selectedDatum.first.datum;
+      }
+      setState(() {
+        _selectedPeriod = selectedPeriod;
+      });
+      widget.callback(response);
+    }
   }
 }

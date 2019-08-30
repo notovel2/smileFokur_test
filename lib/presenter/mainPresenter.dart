@@ -30,7 +30,7 @@ class MainPresenter {
     List<BranchSummary> branchlist = (response['branch_summary'] as List)
                                         .map((item) => BranchSummary.fromJson(item))
                                         .toList();
-    chartData = _sublist(chartData, 12, (a, b) => b.period.compareTo(a.period));
+    chartData = _sublist(chartData, 12, (a, b) => a.period.compareTo(b.period));
     branchlist = _sublist(branchlist, 5, (a, b) => b.value.compareTo(a.value)) as List<BranchSummary>;
     if(branchlist.length > 0) {
       branchlist[0].color = CustomColors.orange.hex;

@@ -12,7 +12,11 @@ class _TotalRevenuePageState extends State<TotalRevenuePage> {
   @override
   Widget build(BuildContext context) {
     widget.chartdatalist = ModalRoute.of(context).settings.arguments;
-    return TotalPage(chartdatalist: widget.chartdatalist,);
+    return TotalPage(
+      chartdatalist: widget.chartdatalist,
+      currency: "THB",
+      title: "Revenue",
+    );
   }
   
 }

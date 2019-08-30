@@ -13,13 +13,15 @@ class ChartSection<T> extends StatelessWidget {
                 this.isShowRightPanel = false,
                 this.isShowMoreBtn = true,
                 this.currency = "",
+                this.summaryData,
                 this.customChart}) : super(key: key);
   final int flex;
   final Function onTap;
   final bool isShowRightPanel;
   final bool isShowMoreBtn;
   final String currency;
-  CustomChart customChart;
+  final OverviewChartModel summaryData;
+  final CustomChart customChart;
   final DateFormat _dateFormat = DateFormat("MMM yyyy", "en_US");
   final NumberFormat formatter = NumberFormat.compact(locale: "en_US");
 
@@ -30,8 +32,17 @@ class ChartSection<T> extends StatelessWidget {
       ) : Container();
   }
 
+  String _getTotalActive(OverviewChartModel summaryData, List<OverviewChartModel> chartdatalist) {
+    if(summaryData != null) {
+      return formatter.format(summaryData.mainAmount.active);
+    }
+    return formatter.format(
+      chartdatalist.last.mainAmount.active
+    );
+  }
+
   _getRightPanel(List chartdatalist) {
-    OverviewChartModel latestData = (chartdatalist[0] as OverviewChartModel);
+    OverviewChartModel latestData = (summaryData == null) ? chartdatalist.last : summaryData;
     return <Widget>[
       _getMoreBtn(isShowMoreBtn),
       Column(
@@ -40,7 +51,7 @@ class ChartSection<T> extends StatelessWidget {
           FittedBox(
             fit: BoxFit.fitWidth,
             child: Text(
-              "${formatter.format(latestData.mainAmount.active)} $currency",
+              "${_getTotalActive(summaryData, chartdatalist)} $currency",
               style: TextStyle(
                 color: CustomColors.orange.color,
                 fontWeight: FontWeight.bold,
