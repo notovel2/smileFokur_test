@@ -1,7 +1,6 @@
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:intl/intl.dart';
 import 'package:smile_fokus_test/component/charts/CustomChart.dart';
 import 'package:smile_fokus_test/constant/Color.dart';
 import 'package:smile_fokus_test/model/chart/BranchSummaryChartModel.dart';
@@ -42,7 +41,7 @@ class PerformanceChart extends CustomChart<BranchSummary> {
 }
 
 class _PerformanceChartState extends State<PerformanceChart> {
-  NumberFormat formatter = NumberFormat.compact(locale: "en_US");
+  
   charts.Color _getColor(BranchSummary chartData, bool isLast) {
     DateTime now = DateTime.now();
     
@@ -61,8 +60,7 @@ class _PerformanceChartState extends State<PerformanceChart> {
         domainFn: (BranchSummary chartData, _) => chartData.place,
         fillColorFn: (BranchSummary chartData, index) => _getColor(chartData, index == chartDatalist.length - 1),
         data: chartDatalist,
-        labelAccessorFn: (BranchSummary chartData, _) => "${formatter.format(chartData.value)} ${chartData.place}",
-        
+        labelAccessorFn: (BranchSummary chartData, _) => "${chartData.place}",
         insideLabelStyleAccessorFn: (BranchSummary chartData, _) => charts.TextStyleSpec(color: charts.Color.fromHex(code: CustomColors.black.hex)),
         outsideLabelStyleAccessorFn: (BranchSummary chartData, _) => charts.TextStyleSpec(color: charts.Color.fromHex(code: CustomColors.black.hex))
       )
@@ -71,8 +69,9 @@ class _PerformanceChartState extends State<PerformanceChart> {
       series,
       animate: true,
       vertical: widget.isVertical,  
-      barRendererDecorator: charts.BarLabelDecorator<String>(),  
-      
+      barRendererDecorator: charts.BarLabelDecorator<String>(
+        labelPosition: charts.BarLabelPosition.outside,
+      ),  
       primaryMeasureAxis: charts.NumericAxisSpec(
         renderSpec: charts.NoneRenderSpec(),
       ),
