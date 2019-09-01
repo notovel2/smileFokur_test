@@ -10,6 +10,7 @@ import 'package:smile_fokus_test/component/charts/SegmentationChart.dart';
 import 'package:smile_fokus_test/constant/Color.dart';
 import 'package:smile_fokus_test/constant/Metrics.dart';
 import 'package:smile_fokus_test/constant/Styles.dart';
+import 'package:smile_fokus_test/constant/enums.dart';
 import 'package:smile_fokus_test/model/Segment.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:smile_fokus_test/model/chart/ChartModel.dart';
@@ -20,7 +21,8 @@ class TotalPage extends StatefulWidget {
   TotalPage({
     this.title,
     this.chartdatalist,
-    this.currency = ""
+    this.currency = "",
+    this.displayType = DisplayType.month
   });
   @override
   _TotalPageState createState() => _TotalPageState();
@@ -29,6 +31,7 @@ class TotalPage extends StatefulWidget {
   final TotalPagePresenter presenter = TotalPagePresenter();
   final String currency;
   final num maxBarWidth = 55;
+  final DisplayType displayType;
 }
 
 class _TotalPageState extends State<TotalPage> {
@@ -104,6 +107,11 @@ class _TotalPageState extends State<TotalPage> {
                                                         "Period",
                                                         "Total ${widget.title} (${widget.currency})",
                                                         "Branch",
+                                                      ],
+                                                      [
+                                                        "",
+                                                        "",
+                                                        ""
                                                       ],
                                                       widget.chartdatalist.first.branches.map<String>((branch) => branch.place).toList()
                                                     ])
@@ -251,7 +259,9 @@ class _TotalPageState extends State<TotalPage> {
 
   Widget _getTableSection({List<OverviewChartModel> body, 
                             List<List<String>> header}) {
-    List<TableRow> table = _getTableHeader(by: header);
+    // List<TableRow> table = _getTableHeader(by: header);
+    List<TableRow> table = [];
+    print(table.length);
     // table.addAll(_getTableBody(from: body));
     return Card(
       child: Table(
@@ -267,6 +277,7 @@ class _TotalPageState extends State<TotalPage> {
         child: Container(
           margin: Metrics.cardMargin,
           child: ChartSection(
+            displayType: widget.displayType,
             flex: 1,
             currency: widget.currency,
             isShowRightPanel: true,

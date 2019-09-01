@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:smile_fokus_test/commons/ChartSection.dart';
 import 'package:smile_fokus_test/commons/CustomAppbar.dart';
+import 'package:smile_fokus_test/component/Dropdown.dart';
 import 'package:smile_fokus_test/component/FlexCard.dart';
 import 'package:smile_fokus_test/component/charts/OverviewChart.dart';
 import 'package:smile_fokus_test/component/charts/PerformanceChart.dart';
 import 'package:smile_fokus_test/constant/Color.dart';
 import 'package:smile_fokus_test/component/Breadcrumb.dart';
 import 'package:smile_fokus_test/component/OverviewSection.dart';
+import 'package:smile_fokus_test/constant/constants.dart';
 import 'package:smile_fokus_test/constant/enums.dart';
+import 'package:smile_fokus_test/model/DropdownItem.dart';
 import 'package:smile_fokus_test/model/MainModel.dart';
 import 'package:smile_fokus_test/model/SectionData.dart';
 import 'package:smile_fokus_test/model/chart/BranchSummaryChartModel.dart';
@@ -26,8 +29,10 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  MainChartResponse revenueData;
-  MainChartResponse memberData;
+  List<DropdownItem<DisplayType>> dropdownlist = Constants.dropdownItems;
+  DropdownItem<DisplayType> _selectedDisplayType;
+  MainChartResponse _revenueData;
+  MainChartResponse _memberData;
   @override
   void initState() {
     super.initState();
@@ -37,11 +42,27 @@ class _MainPageState extends State<MainPage> {
 
   setup() {
     widget.presenter.view = widget;
+    _selectedDisplayType = (dropdownlist.length > 0) 
+                                ? dropdownlist[0] 
+                                : DropdownItem<DisplayType>(
+                                  title: "",
+                                   value: DisplayType.month);
   }
 
   setupChart() {
-    revenueData = widget.presenter.getChartData(DataType.revenue);
-    memberData = widget.presenter.getChartData(DataType.member);
+    _revenueData = widget.presenter.getChartData(DataType.revenue, _selectedDisplayType.value);
+    _memberData = widget.presenter.getChartData(DataType.member, _selectedDisplayType.value);
+  }
+
+  void _onDropdownChanged(dynamic value) {
+    DropdownItem<DisplayType> tmp = value as DropdownItem<DisplayType>;
+    setState(() {
+      _selectedDisplayType = tmp;
+      _revenueData = widget.presenter.getChartData(DataType.revenue, 
+                                                    tmp.value);
+      _memberData = widget.presenter.getChartData(DataType.member, 
+                                                    tmp.value);                                              
+    });
   }
 
   @override
@@ -54,7 +75,22 @@ class _MainPageState extends State<MainPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Breadcrumb(parentContext: context,),
+                Container(
+                  margin: EdgeInsets.only(left: 10, right: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Breadcrumb(
+                        parentContext: context,
+                      ),
+                      Dropdown<DropdownItem<DisplayType>>(
+                        dropdownlist: dropdownlist,
+                        onChanged: _onDropdownChanged,
+                      )
+                      
+                    ],
+                  ),
+                ),
                 Expanded(
                   flex: 1,
                   child: Container(
@@ -66,19 +102,25 @@ class _MainPageState extends State<MainPage> {
                             title: "Revenue",
                             type: "Corporate",
                             currency: "(THB)",
-                            dataOfCurrentYear: revenueData.totalCurrentYear,
-                            totalData: revenueData.total,
+                            dataOfCurrentYear: _revenueData.totalCurrentYear,
+                            totalData: _revenueData.total,
                           ),
                         ),
                         FlexCard(
                           flex: 4,
                           child: ChartSection<OverviewChartModel>(
                             currency: "THB",
+                            displayType: _selectedDisplayType.value,
                             isShowRightPanel: true,
                             onTap: () => 
-                              Navigator.pushNamed(context, '/Total_Revenue', arguments: revenueData.datalist),
+                              Navigator.pushNamed(context, 
+                                                  '/Total_Revenue', 
+                                                  arguments: {
+                                                    "datalist": _memberData.datalist,
+                                                    "displayType": _selectedDisplayType.value
+                                                  }),
                             customChart: OverviewChart(
-                              chartDatalist: revenueData.datalist,
+                              chartDatalist: _revenueData.datalist,
                               domainFn:  (OverviewChartModel data, _) => data.period.toString(),
                               measureFn: (OverviewChartModel data, _) => data.mainAmount.active,
                               id: 'Revenue',
@@ -101,18 +143,24 @@ class _MainPageState extends State<MainPage> {
                             title: "Member",
                             type: "Corporate",
                             currency: "",
-                            dataOfCurrentYear: memberData.totalCurrentYear,
-                            totalData: memberData.total,
+                            dataOfCurrentYear: _memberData.totalCurrentYear,
+                            totalData: _memberData.total,
                           ),
                         ),
                         FlexCard(
                           flex: 4,
                           child: ChartSection<OverviewChartModel>(
                             isShowRightPanel: true,
+                            displayType: _selectedDisplayType.value,
                             onTap: () => 
-                              Navigator.pushNamed(context, '/Total_Member', arguments: memberData.datalist),
+                              Navigator.pushNamed(context, 
+                                                  '/Total_Member', 
+                                                  arguments: {
+                                                    "datalist": _memberData.datalist,
+                                                    "displayType": _selectedDisplayType.value
+                                                  }),
                             customChart: OverviewChart(
-                              chartDatalist: memberData.datalist,
+                              chartDatalist: _memberData.datalist,
                               domainFn:  (OverviewChartModel data, _) => data.period.toString(),
                               measureFn: (OverviewChartModel data, _) => data.mainAmount.active,
                               id: 'Member',
@@ -143,7 +191,7 @@ class _MainPageState extends State<MainPage> {
                           flex: 2,
                           child: ChartSection<BranchSummary>(
                             customChart: PerformanceChart(
-                              chartDatalist: revenueData.branchSummaryList,
+                              chartDatalist: _revenueData.branchSummaryList,
                               domainFn:  (BranchSummary data, _) => data.place,
                               measureFn: (BranchSummary data, _) => data.value,
                               isVertical: false,
@@ -156,7 +204,7 @@ class _MainPageState extends State<MainPage> {
                           flex: 2,
                           child: ChartSection<BranchSummary>(
                             customChart: PerformanceChart(
-                              chartDatalist: memberData.branchSummaryList,
+                              chartDatalist: _memberData.branchSummaryList,
                               domainFn:  (BranchSummary data, _) => data.place,
                               measureFn: (BranchSummary data, _) => data.value,
                               isVertical: false,

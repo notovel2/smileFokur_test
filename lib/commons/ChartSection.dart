@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:smile_fokus_test/component/Button.dart';
 import 'package:smile_fokus_test/component/charts/CustomChart.dart';
 import 'package:smile_fokus_test/constant/Color.dart';
+import 'package:smile_fokus_test/constant/enums.dart';
 import 'package:smile_fokus_test/model/chart/OverviewChartModel.dart';
 
 class ChartSection<T> extends StatelessWidget {
@@ -13,17 +14,21 @@ class ChartSection<T> extends StatelessWidget {
                 this.isShowRightPanel = false,
                 this.isShowMoreBtn = true,
                 this.currency = "",
+                this.displayType = DisplayType.month,
                 this.summaryData,
-                this.customChart}) : super(key: key);
+                @required this.customChart}) :  _dateFormat = DateFormat((displayType == DisplayType.day) ? "dd MMM yyyy" : "MMM yyyy", "en_US"),
+                                                formatter = NumberFormat.compact(locale: "en_US"),
+                                                super(key: key);
   final int flex;
+  final DisplayType displayType;
   final Function onTap;
   final bool isShowRightPanel;
   final bool isShowMoreBtn;
   final String currency;
   final OverviewChartModel summaryData;
   final CustomChart customChart;
-  final DateFormat _dateFormat = DateFormat("MMM yyyy", "en_US");
-  final NumberFormat formatter = NumberFormat.compact(locale: "en_US");
+  final DateFormat _dateFormat;
+  final NumberFormat formatter;
 
   _getMoreBtn(bool isShow) {
     return (isShow) ? Button(

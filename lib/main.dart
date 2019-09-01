@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         buttonColor: CustomColors.orange.color,
         scaffoldBackgroundColor: CustomColors.bgGray.color,
-        fontFamily: 'Myriad Pro',
+        fontFamily: 'Myriad-Pro',
         primarySwatch: Colors.blue,
       ),
       initialRoute: '/',

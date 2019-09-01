@@ -69,9 +69,7 @@ class _PerformanceChartState extends State<PerformanceChart> {
       series,
       animate: true,
       vertical: widget.isVertical,  
-      barRendererDecorator: charts.BarLabelDecorator<String>(
-        labelPosition: charts.BarLabelPosition.outside,
-      ),  
+      barRendererDecorator: charts.BarLabelDecorator<String>(),  
       primaryMeasureAxis: charts.NumericAxisSpec(
         renderSpec: charts.NoneRenderSpec(),
       ),

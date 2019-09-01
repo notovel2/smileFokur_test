@@ -9,19 +9,32 @@ import 'package:smile_fokus_test/view/mainPage.dart';
 class MainPresenter {
   MainPage view;
 
-  List _sublist<T>(List datalist, int size, int Function(dynamic,dynamic) comparatorFn) {
+  List _sublist<T>(List datalist, 
+                    int size, 
+                    int Function(dynamic,dynamic) comparatorFn,
+                    {
+                      bool getLastSublist = false,
+                    }) {
     datalist.sort(comparatorFn);
-    return (datalist.length - size > 0) ? datalist.sublist(0, size) : datalist;
+    int length = datalist.length;
+    if (length - size > 0){
+      if(getLastSublist) {
+        return datalist.sublist(length - size , length);
+      } else {
+        return datalist.sublist(0, size);
+      }
+    }
+    return datalist;
   }
 
-  MainChartResponse getChartData(DataType type) {
+  MainChartResponse getChartData(DataType type, DisplayType displayType) {
     Map<String, dynamic> response;
     switch (type) {
       case DataType.revenue:
-        response = Api.getData(DataType.revenue);
+        response = Api.getData(DataType.revenue, displayType);
         break;
       case DataType.member:
-        response = Api.getData(DataType.member);
+        response = Api.getData(DataType.member, displayType);
         break;
     }
     List<OverviewChartModel> chartData = (response['data'] as List)
@@ -30,7 +43,7 @@ class MainPresenter {
     List<BranchSummary> branchlist = (response['branch_summary'] as List)
                                         .map((item) => BranchSummary.fromJson(item))
                                         .toList();
-    chartData = _sublist(chartData, 12, (a, b) => a.period.compareTo(b.period));
+    chartData = _sublist(chartData, 14, (a, b) => a.period.compareTo(b.period), getLastSublist: true);
     branchlist = _sublist(branchlist, 5, (a, b) => b.value.compareTo(a.value)) as List<BranchSummary>;
     if(branchlist.length > 0) {
       branchlist[0].color = CustomColors.orange.hex;

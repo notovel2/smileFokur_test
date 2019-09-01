@@ -43,6 +43,17 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+  fonts:
+    - family: Myriad-Pro
+      fonts:
+        - asset: fonts/Myriad-Pro-Italic.ttf
+        - asset: fonts/Myriad-Pro-Regular.ttf
+        - asset: fonts/Myriad-Pro-Bold.ttf
+        - asset: fonts/Myriad-Pro-Bold-Italic.ttf
+        - asset: fonts/Myriad-Pro-Condensed.ttf
+        - asset: fonts/Myriad-Pro-Condensed-Italic.ttf
+        - asset: fonts/Myriad-Pro-Semibold-Italic.ttf
+        - asset: fonts/Myriad-Pro-Semibold.ttf
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg
