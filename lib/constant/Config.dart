@@ -1,4 +1,4 @@
 class Config {
-  static final apiURl = "localhost";
-  static final apiPort = "3000";
+  static final apiURl = "https://smile-fokus-be.herokuapp.com";
+  static final apiPort = "";
 }
