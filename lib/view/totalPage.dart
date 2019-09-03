@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:intl/intl.dart';
 import 'package:smile_fokus_test/commons/ChartSection.dart';
 import 'package:smile_fokus_test/commons/CustomAppbar.dart';
 import 'package:smile_fokus_test/component/Breadcrumb.dart';
@@ -12,7 +11,6 @@ import 'package:smile_fokus_test/constant/Metrics.dart';
 import 'package:smile_fokus_test/constant/Styles.dart';
 import 'package:smile_fokus_test/constant/enums.dart';
 import 'package:smile_fokus_test/model/Segment.dart';
-import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:smile_fokus_test/model/chart/ChartModel.dart';
 import 'package:smile_fokus_test/model/chart/OverviewChartModel.dart';
 import 'package:smile_fokus_test/presenter/totalPagePresenter.dart';
@@ -285,6 +283,7 @@ class _TotalPageState extends State<TotalPage> {
             summaryData: _summaryData,
             customChart: OverviewChart(
               callback: _chartCallback,
+              displayType: widget.displayType,
               chartDatalist: chartDatalist,
               domainFn:  (OverviewChartModel data, _) => data.period.toString(),
               measureFn: (OverviewChartModel data, _) => data.mainAmount.active,

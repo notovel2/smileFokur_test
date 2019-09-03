@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:smile_fokus_test/component/charts/CustomChart.dart';
 import 'package:smile_fokus_test/constant/Color.dart';
+import 'package:smile_fokus_test/constant/enums.dart';
 import 'package:smile_fokus_test/model/chart/OverviewChartModel.dart';
 
 class OverviewChart extends CustomChart<OverviewChartModel> {
@@ -12,6 +13,7 @@ class OverviewChart extends CustomChart<OverviewChartModel> {
                 this.measureFn, 
                 this.isVertical = true, 
                 this.id, 
+                this.displayType = DisplayType.month,
                 this.callback,
                 this.isShowGridline = false,
                 this.title}) : super(key: key);
@@ -20,6 +22,7 @@ class OverviewChart extends CustomChart<OverviewChartModel> {
   final String id;
   final bool isVertical;
   final String title;
+  final DisplayType displayType;
   final bool isShowGridline;
   @override
   Function callback;
@@ -31,21 +34,34 @@ class OverviewChart extends CustomChart<OverviewChartModel> {
 
 class _ChartState extends State<OverviewChart> {
   DateTime _selectedPeriod;
+  OverviewChartModel _latest;
+  
+  bool _isInPeriod(DateTime period, DateTime latest, DisplayType displayType) {
+    switch (displayType) {
+      case DisplayType.month:
+        return period.year == latest.year;
+      case DisplayType.day:
+        int currentWeekday = latest.weekday;
+        DateTime firstDayOfWeek = latest.add(Duration(days: -(currentWeekday + 1)));
+        DateTime lastDayOfWeek = latest.add(Duration(days: (9 - currentWeekday)));
+        return period.isAfter(firstDayOfWeek) && period.isBefore(lastDayOfWeek);
+    }
+    return false;
+  }
 
   charts.Color _getColor(OverviewChartModel chartData, bool isLast) {
-    DateTime now = DateTime.now();
     if(_selectedPeriod != null) {
       if(chartData.period == _selectedPeriod) {
         return charts.Color.fromHex(code: CustomColors.orange.hex);
       } 
-    } else {
-      if(chartData.period.year == now.year) {
+    } else if(chartData != null && _latest != null) {
+      if(_isInPeriod(chartData.period, _latest.period, widget.displayType)) {
         return (isLast) ? charts.Color.fromHex(code: CustomColors.orange.hex) : charts.Color.fromHex(code: CustomColors.orangeOpacity.hex);
       }
     }
     return charts.Color.fromHex(code: CustomColors.gray.hex);
   }
-
+  
   @override
   Widget build(BuildContext context) {
     List<OverviewChartModel> chartDatalist = widget.chartDatalist;
@@ -58,6 +74,10 @@ class _ChartState extends State<OverviewChart> {
         data: chartDatalist,
       )
     ];
+    if(widget.chartDatalist.isNotEmpty) {
+      _latest = widget.chartDatalist.reduce((cur, next) => (next.period.isAfter(cur.period) ? next : cur));
+    }
+
     return charts.BarChart(
       series,
       animate: true,

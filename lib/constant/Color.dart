@@ -8,6 +8,7 @@ class CustomColors {
   static final bgGray =  _Colors(color: Color.fromRGBO(242, 242, 242, 1), hex: "#F2F2F2");
   static final orangeOpacity = _Colors(color: Color.fromRGBO(255, 229, 195, 1), hex: "#FFE5C3");
   static final border = _Colors(color: Color.fromRGBO(189, 189, 189, 1), hex: "#BDBDBD");
+  static final loadingBG = _Colors(color: Color.fromRGBO(189, 189, 189, 0.8), hex: "#BDBDBD");
 }
 
 class _Colors {

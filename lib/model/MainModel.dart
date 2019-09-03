@@ -12,8 +12,8 @@ class MainChartResponse {
   List<BranchSummary> branchSummaryList;
   MainChartResponse({
     this.datalist,
-    this.total,
-    this.totalCurrentYear,
+    this.total = 0,
+    this.totalCurrentYear = 0,
     this.branchSummaryList,
   });
 }

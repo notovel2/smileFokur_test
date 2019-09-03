@@ -11,17 +11,12 @@ class FlexCard extends StatelessWidget {
     return Expanded(
       flex: flex,
       child: Container(
-        padding: Metrics.cardMargin,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black,
-            ),
-          ],
-        ),
-        margin: EdgeInsets.all(3),
-        child: child,          
+        child: Card(
+          child: Container(
+            padding: Metrics.cardMargin,
+            child: child
+          ),
+        ),          
       ),
     );
   }

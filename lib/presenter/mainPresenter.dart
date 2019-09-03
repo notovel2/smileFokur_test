@@ -27,34 +27,33 @@ class MainPresenter {
     return datalist;
   }
 
-  MainChartResponse getChartData(DataType type, DisplayType displayType) {
-    Map<String, dynamic> response;
-    switch (type) {
-      case DataType.revenue:
-        response = Api.getData(DataType.revenue, displayType);
-        break;
-      case DataType.member:
-        response = Api.getData(DataType.member, displayType);
-        break;
-    }
-    List<OverviewChartModel> chartData = (response['data'] as List)
-                                        .map((item) => OverviewChartModel.fromJson(item))
-                                        .toList();
-    List<BranchSummary> branchlist = (response['branch_summary'] as List)
-                                        .map((item) => BranchSummary.fromJson(item))
-                                        .toList();
-    chartData = _sublist(chartData, 14, (a, b) => a.period.compareTo(b.period), getLastSublist: true);
-    branchlist = _sublist(branchlist, 5, (a, b) => b.value.compareTo(a.value)) as List<BranchSummary>;
-    if(branchlist.length > 0) {
-      branchlist[0].color = CustomColors.orange.hex;
-      branchlist[1].color = CustomColors.orangeOpacity.hex;
-    }
-    branchlist.sort((a, b) => a.place.compareTo(b.place));
-    return MainChartResponse(
-      datalist: chartData,
-      total: response['total'] as num,
-      totalCurrentYear: response['total_current_year'] as num,
-      branchSummaryList: branchlist,
-    );
+  getChartData(DataType type, 
+                DisplayType displayType,
+                dynamic Function({MainChartResponse response,DataType dataType}) callback) {
+
+    Api.getData(type, displayType).then((response) {
+      List<OverviewChartModel> chartData = (response['data'] as List)
+                                              .map((item) => OverviewChartModel.fromJson(item))
+                                              .toList();
+      List<BranchSummary> branchlist = (response['branch_summary'] as List)
+                                          .map((item) => BranchSummary.fromJson(item))
+                                          .toList();
+      chartData = _sublist(chartData, 14, (a, b) => a.period.compareTo(b.period), getLastSublist: true);
+      branchlist = _sublist(branchlist, 5, (a, b) => b.value.compareTo(a.value)) as List<BranchSummary>;
+      if(branchlist.length > 0) {
+        branchlist[0].color = CustomColors.orange.hex;
+        branchlist[1].color = CustomColors.orangeOpacity.hex;
+      }
+      branchlist.sort((a, b) => a.place.compareTo(b.place));
+      callback(
+        response: MainChartResponse(
+          datalist: chartData,
+          total: response['total'] as num,
+          totalCurrentYear: response['total_current_year'] as num,
+          branchSummaryList: branchlist,
+        ),
+        dataType: type
+      );
+    });
   }
 }

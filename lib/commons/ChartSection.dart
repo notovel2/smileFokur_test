@@ -41,13 +41,27 @@ class ChartSection<T> extends StatelessWidget {
     if(summaryData != null) {
       return formatter.format(summaryData.mainAmount.active);
     }
-    return formatter.format(
-      chartdatalist.last.mainAmount.active
-    );
+    if(chartdatalist.isNotEmpty) {
+      return formatter.format(
+        chartdatalist.last.mainAmount.active
+      );
+    }
+    return "No data";
+    
   }
 
-  _getRightPanel(List chartdatalist) {
-    OverviewChartModel latestData = (summaryData == null) ? chartdatalist.last : summaryData;
+  DateTime _getPeriod(List<OverviewChartModel> list, OverviewChartModel summary) {
+    if(summary != null) {
+      return summary.period;
+    }
+    if(list.isNotEmpty) {
+      return list.last.period;
+    }
+    return null;
+  }
+
+  _getRightPanel(List<OverviewChartModel> chartdatalist) {
+    DateTime period = _getPeriod(chartdatalist, summaryData);
     return <Widget>[
       _getMoreBtn(isShowMoreBtn),
       Column(
@@ -67,7 +81,7 @@ class ChartSection<T> extends StatelessWidget {
           FittedBox(
             fit: BoxFit.fitWidth,
             child: Text(
-              "${_dateFormat.format(latestData.period)}",
+              "${(period != null) ? _dateFormat.format(period) : "No data"}",
               style: TextStyle(
                 color: CustomColors.orange.color,
                 fontSize: 15,
