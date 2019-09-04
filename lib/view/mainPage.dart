@@ -87,8 +87,8 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  Widget _buildLoading(BuildContext context) {
-    if(_isMemberLoading || _isRevenueLoading) {
+  Widget _buildLoading(BuildContext context, bool isLoading) {
+    if(isLoading) {
       return Center(
         child: Container(
           color: CustomColors.loadingBG.color,
@@ -98,6 +98,61 @@ class _MainPageState extends State<MainPage> {
       );
     }
     return Container();
+  }
+
+  Widget _buildSection({
+    @required BuildContext context,
+    @required String title,
+    @required String subTitle,
+    String currency = "",
+    @required num totalCurrentYear,
+    @required num total,
+    @required String routeName,
+    @required DisplayType displayType,
+    @required List<OverviewChartModel> datalist}) {
+    var currencyTitle = (currency != "") ? "($currency)" : currency;
+    return Expanded(
+      flex: 1,
+      child: Container(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            OverviewSection(
+              sectionData: SectionData(
+                title: title,
+                type: subTitle,
+                currency: currencyTitle,
+                dataOfCurrentYear: totalCurrentYear,
+                totalData: total,
+              ),
+            ),
+            FlexCard(
+              flex: 4,
+              child: ChartSection<OverviewChartModel>(
+                currency: currency,
+                displayType: displayType,
+                isShowRightPanel: true,
+                onTap: () => 
+                  Navigator.pushNamed(context, 
+                                      '$routeName', 
+                                      arguments: {
+                                        "datalist": datalist,
+                                        "displayType": displayType
+                                      }),
+                customChart: OverviewChart(
+                  displayType: displayType,
+                  chartDatalist: datalist,
+                  domainFn:  (OverviewChartModel data, _) => data.period.toString(),
+                  measureFn: (OverviewChartModel data, _) => data.mainAmount.active,
+                  id: '$title',
+                  title: '$title$currencyTitle',
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 
   Widget _buildBody(BuildContext context) {
@@ -121,88 +176,26 @@ class _MainPageState extends State<MainPage> {
                 ],
               ),
             ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    OverviewSection(
-                      sectionData: SectionData(
-                        title: "Revenue",
-                        type: "Corporate",
-                        currency: "(THB)",
-                        dataOfCurrentYear: _revenueData.totalCurrentYear,
-                        totalData: _revenueData.total,
-                      ),
-                    ),
-                    FlexCard(
-                      flex: 4,
-                      child: ChartSection<OverviewChartModel>(
-                        currency: "THB",
-                        displayType: _selectedDisplayType.value,
-                        isShowRightPanel: true,
-                        onTap: () => 
-                          Navigator.pushNamed(context, 
-                                              '/Total_Revenue', 
-                                              arguments: {
-                                                "datalist": _memberData.datalist,
-                                                "displayType": _selectedDisplayType.value
-                                              }),
-                        customChart: OverviewChart(
-                          displayType: _selectedDisplayType.value,
-                          chartDatalist: _revenueData.datalist,
-                          domainFn:  (OverviewChartModel data, _) => data.period.toString(),
-                          measureFn: (OverviewChartModel data, _) => data.mainAmount.active,
-                          id: 'Revenue',
-                          title: 'Revenue(THB)',
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
+            _buildSection(
+              context: context,
+              title: "Revenue",
+              subTitle: "Corporate",
+              currency: "THB",
+              totalCurrentYear: _revenueData.totalCurrentYear,
+              total: _revenueData.total,
+              routeName: "/Total_Revenue",
+              datalist: _revenueData.datalist,
+              displayType: _selectedDisplayType.value
             ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    OverviewSection(
-                      sectionData: SectionData(
-                        title: "Member",
-                        type: "Corporate",
-                        currency: "",
-                        dataOfCurrentYear: _memberData.totalCurrentYear,
-                        totalData: _memberData.total,
-                      ),
-                    ),
-                    FlexCard(
-                      flex: 4,
-                      child: ChartSection<OverviewChartModel>(
-                        isShowRightPanel: true,
-                        displayType: _selectedDisplayType.value,
-                        onTap: () => 
-                          Navigator.pushNamed(context, 
-                                              '/Total_Member', 
-                                              arguments: {
-                                                "datalist": _memberData.datalist,
-                                                "displayType": _selectedDisplayType.value
-                                              }),
-                        customChart: OverviewChart(
-                          chartDatalist: _memberData.datalist,
-                          displayType: _selectedDisplayType.value,
-                          domainFn:  (OverviewChartModel data, _) => data.period.toString(),
-                          measureFn: (OverviewChartModel data, _) => data.mainAmount.active,
-                          id: 'Member',
-                          title: 'Member',
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
+            _buildSection(
+              context: context,
+              title: "Member",
+              subTitle: "Corporate",
+              totalCurrentYear: _memberData.totalCurrentYear,
+              total: _memberData.total,
+              routeName: "/Total_Member",
+              datalist: _memberData.datalist,
+              displayType: _selectedDisplayType.value
             ),
             Expanded(
               flex: 1,
@@ -263,7 +256,7 @@ class _MainPageState extends State<MainPage> {
       body: Stack(
         children: <Widget>[
           _buildBody(context),
-          _buildLoading(context)
+          _buildLoading(context, _isMemberLoading || _isRevenueLoading)
         ]
       ),
         

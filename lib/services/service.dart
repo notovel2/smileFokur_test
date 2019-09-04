@@ -8,7 +8,6 @@ class Service {
     Map<String, dynamic> body,
     Map<String, String> headers}) async{
     String url = "$rootUrl/$path";
-    print("url $url");
     return http.post(
       url,
       body: body,

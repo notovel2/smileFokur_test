@@ -1,41 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
-import 'package:smile_fokus_test/component/Button.dart';
 import 'package:smile_fokus_test/component/charts/CustomChart.dart';
 import 'package:smile_fokus_test/constant/Color.dart';
 import 'package:smile_fokus_test/constant/enums.dart';
 import 'package:smile_fokus_test/model/chart/OverviewChartModel.dart';
+import 'package:smile_fokus_test/utils/dateUtil.dart';
 
 class ChartSection<T> extends StatelessWidget {
   ChartSection({Key key, 
                 this.flex = 4,
                 this.onTap,
                 this.isShowRightPanel = false,
-                this.isShowMoreBtn = true,
                 this.currency = "",
                 this.displayType = DisplayType.month,
                 this.summaryData,
-                @required this.customChart}) :  _dateFormat = DateFormat((displayType == DisplayType.day) ? "dd MMM yyyy" : "MMM yyyy", "en_US"),
+                @required this.customChart}) :  _dateFormat = DateFormat(DateUtil.getPattern(displayType), "en_US"),
                                                 formatter = NumberFormat.compact(locale: "en_US"),
                                                 super(key: key);
   final int flex;
   final DisplayType displayType;
   final Function onTap;
   final bool isShowRightPanel;
-  final bool isShowMoreBtn;
   final String currency;
   final OverviewChartModel summaryData;
   final CustomChart customChart;
   final DateFormat _dateFormat;
   final NumberFormat formatter;
-
-  _getMoreBtn(bool isShow) {
-    return (isShow) ? Button(
-        title: "More",
-        onPress: onTap,
-      ) : Container();
-  }
 
   String _getTotalActive(OverviewChartModel summaryData, List<OverviewChartModel> chartdatalist) {
     if(summaryData != null) {
@@ -63,7 +54,6 @@ class ChartSection<T> extends StatelessWidget {
   _getRightPanel(List<OverviewChartModel> chartdatalist) {
     DateTime period = _getPeriod(chartdatalist, summaryData);
     return <Widget>[
-      _getMoreBtn(isShowMoreBtn),
       Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: <Widget>[
@@ -93,9 +83,10 @@ class ChartSection<T> extends StatelessWidget {
     ];
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
+  List<Widget> _buildForm(BuildContext context) {
+    List<Widget> widgets = [];
+    widgets.add(
+      Row(
         children: <Widget>[
           Expanded(
             flex: 1,
@@ -107,12 +98,32 @@ class ChartSection<T> extends StatelessWidget {
             width: 100,
             margin: EdgeInsets.only(bottom: 20),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: (isShowRightPanel) ? _getRightPanel(customChart.chartDatalist) : [],
             )
           ),
         ],
+      ),
+    );
+    if(onTap != null) {
+      widgets.add(
+        GestureDetector(
+          child: Container(
+            color: Colors.transparent,
+          ),
+          onTap: onTap,
+        )
+      );
+    }
+
+    return widgets;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: _buildForm(context),
     );
   }
 }

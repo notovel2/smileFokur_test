@@ -1,13 +1,19 @@
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:intl/intl.dart';
 import 'package:smile_fokus_test/constant/Color.dart';
+import 'package:smile_fokus_test/constant/enums.dart';
 import 'package:smile_fokus_test/model/Segment.dart';
 import 'package:smile_fokus_test/model/chart/ChartModel.dart';
 import 'package:smile_fokus_test/model/chart/OverviewChartModel.dart';
+import 'package:smile_fokus_test/utils/dateUtil.dart';
 import 'package:smile_fokus_test/view/totalPage.dart';
 
 class TotalPagePresenter {
-  final DateFormat _dateFormat = DateFormat("MMM-yyyy");
+  TotalPagePresenter({
+    this.displayType = DisplayType.month,
+  }): this._dateFormat = DateFormat(DateUtil.getPattern(displayType));
+  final DisplayType displayType;
+  final DateFormat _dateFormat;
   final NumberFormat _numberFormat = NumberFormat("#,###.##");
   TotalPage view;
   List<Segment> getSegmentlist(List<OverviewChartModel> chartdatalist, List<DateTime> periodList) {
@@ -48,12 +54,10 @@ class TotalPagePresenter {
                             0, 
                             (cur, next) => (cur > next.measure) ? cur : next.measure
                           );
-    print("max : $maximum");
     tmpMap.updateAll((key, value) {
       value.color = (value.measure >= maximum) ? charts.Color.fromHex(code: CustomColors.orange.hex) : value.color;
       return value;
     });
-    // tmpMap.removeWhere((key, value) => value.measure <= 0);
     return tmpMap;
   }
 
@@ -147,7 +151,7 @@ class TotalPagePresenter {
   String getSegmentationHeader(DateTime currentPeriod, OverviewChartModel summaryData, String currency) {
     return (currentPeriod == null) 
                 ? "All" 
-                : "${_dateFormat.format(currentPeriod)} (${_numberFormat.format(summaryData.mainAmount.active)} ${currency})";
+                : "${_dateFormat.format(currentPeriod)} (${_numberFormat.format(summaryData.mainAmount.active)} $currency)";
   }
 
   OverviewChartModel getSummaryData(List<OverviewChartModel> chartdatalist, DateTime currentPeriod) {

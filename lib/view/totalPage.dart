@@ -21,12 +21,12 @@ class TotalPage extends StatefulWidget {
     this.chartdatalist,
     this.currency = "",
     this.displayType = DisplayType.month
-  });
+  }): presenter = TotalPagePresenter(displayType: displayType);
   @override
   _TotalPageState createState() => _TotalPageState();
   final String title;
   final List<OverviewChartModel> chartdatalist;
-  final TotalPagePresenter presenter = TotalPagePresenter();
+  final TotalPagePresenter presenter;
   final String currency;
   final num maxBarWidth = 55;
   final DisplayType displayType;
@@ -259,7 +259,6 @@ class _TotalPageState extends State<TotalPage> {
                             List<List<String>> header}) {
     // List<TableRow> table = _getTableHeader(by: header);
     List<TableRow> table = [];
-    print(table.length);
     // table.addAll(_getTableBody(from: body));
     return Card(
       child: Table(
@@ -279,7 +278,6 @@ class _TotalPageState extends State<TotalPage> {
             flex: 1,
             currency: widget.currency,
             isShowRightPanel: true,
-            isShowMoreBtn: false,
             summaryData: _summaryData,
             customChart: OverviewChart(
               callback: _chartCallback,
